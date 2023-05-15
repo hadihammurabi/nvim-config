@@ -39,6 +39,8 @@ wk.register({
 
 map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
 map("n", "<C-s>", ":w<CR>", { silent = true })
+map("n", "]]", ":lua require'illuminate'.goto_next_reference(false)<CR>", { silent = true })
+map("n", "[[", ":lua require'illuminate'.goto_prev_reference(false)<CR>", { silent = true })
 map("i", "<C-s>", "<esc>:w<CR>", { silent = true })
 map("i", "<Tab>", "<Tab>", { silent = true })
 
