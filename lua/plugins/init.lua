@@ -15,21 +15,6 @@ local plugins = {
 	},
 
 	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup({
-				ui = {
-					icons = {
-						package_installed = "✓",
-						package_pending = "➜",
-						package_uninstalled = "✗",
-					},
-				},
-			})
-		end,
-	},
-
-	{
 		"mfussenegger/nvim-dap",
 		event = "BufRead",
 	},
@@ -82,36 +67,6 @@ local plugins = {
 	},
 
 	{
-		"jay-babu/mason-nvim-dap.nvim",
-		event = "BufRead",
-		config = function()
-			require("mason-nvim-dap").setup({})
-			require("dap").adapters.go = {
-				type = "server",
-				port = "63370",
-				executable = {
-					command = "dlv",
-					args = { "dap", "-l", "127.0.0.1:63370" },
-				},
-			}
-			local dap, dapui = require("dap"), require("dapui")
-			dap.listeners.after.event_initialized["dapui_config"] = function()
-				dapui.open()
-				vim.cmd("NvimTreeClose")
-			end
-			dap.listeners.before.event_terminated["dapui_config"] = function()
-				dapui.close()
-				vim.cmd("NvimTreeOpen")
-			end
-			dap.listeners.before.event_exited["dapui_config"] = function()
-				dapui.close()
-				vim.cmd("NvimTreeShow")
-			end
-
-			vim.cmd("DapLoadLaunchJSON")
-		end,
-	},
-	{
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
 			local nl = require("null-ls")
@@ -120,12 +75,6 @@ local plugins = {
 					nl.builtins.formatting.goimports,
 				},
 			})
-		end,
-	},
-	{
-		"jay-babu/mason-null-ls.nvim",
-		config = function()
-			require("mason-null-ls").setup({})
 		end,
 	},
 
@@ -333,6 +282,11 @@ end
 local cmp = require('plugins.cmp')
 for p = 1, table.getn(cmp) do
 	table.insert(plugins, cmp[p])
+end
+
+local mason = require('plugins.mason')
+for p = 1, table.getn(mason) do
+	table.insert(plugins, mason[p])
 end
 
 return plugins
