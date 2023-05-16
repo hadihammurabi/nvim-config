@@ -263,139 +263,10 @@ local plugins = {
 	},
 
 	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			local on_attach = function(client, bufnr)
-				-- Enable completion triggered by <c-x><c-o>
-				vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-				-- Mappings.
-				-- See `:help vim.lsp.*` for documentation on any of the below functions
-				local bufopts = { noremap = true, silent = true, buffer = bufnr }
-				-- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-				vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-				vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-				-- vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-				-- vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-				-- vim.keymap.set('n', '<leader>wl', function()
-				--   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-				-- end, bufopts)
-
-				local wk = require("which-key")
-				wk.register({
-					["<leader>l"] = { name = "+LSP" },
-					["<leader>lD"] = { ":lua vim.lsp.buf.declaration()<CR>", "Goto Declaration" },
-					["<leader>ld"] = { ":lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
-					["<leader>lt"] = { ":lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
-					["<leader>lr"] = { ":lua vim.lsp.buf.rename()<CR>", "Rename All" },
-					["<leader>la"] = { ":lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-					["<leader>lf"] = { ":lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
-				})
-			end
-
-			local lsp = require("lspconfig")
-			lsp.gopls.setup({
-				on_attach = on_attach,
-			})
-			lsp.rust_analyzer.setup({
-				on_attach = on_attach,
-				cmd = {
-					"rustup",
-					"run",
-					"stable",
-					"rust-analyzer",
-				},
-			})
-		end,
-	},
-
-	{ "hrsh7th/nvim-cmp" },
-	{
-		"L3MON4D3/LuaSnip",
-		dependencies = { "rafamadriz/friendly-snippets" },
-	},
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ 'hrsh7th/cmp-buffer' },
-	{ 'hrsh7th/cmp-path' },
-	{
-		'tzachar/cmp-tabnine',
-		build = './install.sh',
-		dependencies = 'hrsh7th/nvim-cmp',
-	},
-	{
-		"VonHeikemen/lsp-zero.nvim",
-		dependencies = {
-			{ "neovim/nvim-lspconfig" },
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "L3MON4D3/LuaSnip" },
-		  { "saadparwaiz1/cmp_luasnip" },
-			{ "williamboman/mason.nvim" },
-			{ 'hrsh7th/cmp-buffer' },
-			{ 'tzachar/cmp-tabnine' },
-			{ 'hrsh7th/cmp-path' },
-		},
-		config = function()
-			require("luasnip.loaders.from_vscode").lazy_load({})
-			local cmp = require("cmp")
-			local ls = require("luasnip")
-
-			cmp.setup({
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "buffer" },
-					{ name = "cmp_tabnine" },
-					{ name = "path" },
-					{ name = "luasnip", option = { show_autosnippets = false } },
-				}),
-
-				mapping = cmp.mapping.preset.insert({
-					["<CR>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replace,
-						select = true,
-					}),
-					["<C-Space>"] = cmp.mapping.complete(),
-				}),
-
-				snippet = {
-					expand = function(args)
-						ls.lsp_expand(args.body)
-					end,
-				},
-			})
-
-			local M = {}
-			function M.expand_or_jump()
-				if ls.expand_or_jumpable() then
-					ls.expand_or_jump()
-				end
-			end
-
-			function M.jump_prev()
-				if ls.jumpable(-1) then
-					ls.jump(-1)
-				end
-			end
-
-			vim.keymap.set("i", "<c-i>", M.expand_or_jump)
-		end,
-	},
-
-	{
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup()
 		end,
-	},
-
-	{ "rafamadriz/friendly-snippets" },
-	{
-		"saadparwaiz1/cmp_luasnip",
-		dependencies = {
-			{ "L3MON4D3/LuaSnip" },
-		},
 	},
 
 	{
@@ -452,6 +323,16 @@ local plugins = {
 local telescope = require('plugins.telescope')
 for p = 1, table.getn(telescope) do
 	table.insert(plugins, telescope[p])
+end
+
+local lsp = require('plugins.lsp')
+for p = 1, table.getn(lsp) do
+	table.insert(plugins, lsp[p])
+end
+
+local completion = require('plugins.completion')
+for p = 1, table.getn(completion) do
+	table.insert(plugins, completion[p])
 end
 
 return plugins
