@@ -330,9 +330,9 @@ for p = 1, table.getn(lsp) do
 	table.insert(plugins, lsp[p])
 end
 
-local completion = require('plugins.completion')
-for p = 1, table.getn(completion) do
-	table.insert(plugins, completion[p])
+local cmp = require('plugins.cmp')
+for p = 1, table.getn(cmp) do
+	table.insert(plugins, cmp[p])
 end
 
 return plugins
