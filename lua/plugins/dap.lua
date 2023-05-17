@@ -1,12 +1,12 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
-		event = "BufRead",
+		event = { "BufReadPost", "BufNewFile" },
 	},
 
 	{
 		"rcarriga/nvim-dap-ui",
-		event = "BufRead",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("dapui").setup({
 				layouts = {

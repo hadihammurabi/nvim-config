@@ -7,6 +7,7 @@ return {
 
 	{
 		"VonHeikemen/lsp-zero.nvim",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
 			{ "neovim/nvim-lspconfig" },
 			{ "hrsh7th/nvim-cmp" },

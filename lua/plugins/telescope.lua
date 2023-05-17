@@ -4,7 +4,7 @@ return {
 	{ 'nvim-telescope/telescope-file-browser.nvim' },
 	{
 		"nvim-telescope/telescope.nvim",
-		event = "BufRead",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("telescope").setup({})
 		end,

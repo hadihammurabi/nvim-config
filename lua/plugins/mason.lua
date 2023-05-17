@@ -1,7 +1,7 @@
 return {
 	{
 		"williamboman/mason.nvim",
-    lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("mason").setup({
 				ui = {
@@ -17,7 +17,7 @@ return {
 
 	{
 		"jay-babu/mason-nvim-dap.nvim",
-    lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       { "mfussenegger/nvim-dap" },
     },
@@ -51,7 +51,7 @@ return {
 
 	{
 		"jay-babu/mason-null-ls.nvim",
-    lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
 		config = true,
 	},
 }

@@ -31,6 +31,7 @@ local plugins = {
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			vim.opt.termguicolors = true
 			vim.cmd([[highlight IndentBlanklineIndent1 guibg=#1c1c29 gui=nocombine]])
@@ -54,6 +55,7 @@ local plugins = {
 	{
 		"echasnovski/mini.nvim",
 		version = "*",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("mini.indentscope").setup()
 			require('mini.comment').setup()
@@ -67,7 +69,7 @@ local plugins = {
 
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = "BufRead",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("nvim-treesitter.configs").setup({})
 			vim.cmd(":TSUpdate")
@@ -76,6 +78,7 @@ local plugins = {
 	},
 	{
 		'nvim-treesitter/nvim-treesitter-context',
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require('treesitter-context').setup({
 				patterns = {
@@ -98,7 +101,7 @@ local plugins = {
 
 	{
 		"windwp/nvim-ts-autotag",
-		event = "BufRead",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("nvim-ts-autotag").setup({
 				filetypes = { "html", "xml" },
@@ -108,7 +111,7 @@ local plugins = {
 
 	{
 		"nvim-tree/nvim-web-devicons",
-		event = "BufRead",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("nvim-web-devicons").setup()
 		end,
@@ -116,6 +119,7 @@ local plugins = {
 
 	{
 		"nvim-tree/nvim-tree.lua",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("nvim-tree").setup({
 				view = {
@@ -127,26 +131,15 @@ local plugins = {
 
 	{
 		'folke/trouble.nvim',
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require('trouble').setup()
 		end,
 	},
 
 	{
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	},
-
-	{
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup()
-		end,
-	},
-	{
 		"lewis6991/gitsigns.nvim",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("gitsigns").setup()
 		end,
@@ -154,6 +147,7 @@ local plugins = {
 
 	{
 		"folke/tokyonight.nvim",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			vim.cmd.colorscheme("tokyonight-night")
 		end,
@@ -163,6 +157,7 @@ local plugins = {
 
 	{
 		"NvChad/nvterm",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("nvterm").setup({
 				terminals = {
