@@ -20,12 +20,27 @@ wk.register({
     ["<leader>fd"] = { ":Telescope diagnostics<CR>", "Diagnostics Search" },
 
     ['<leader>t'] = { name = '+terminal' },
-    ['<leader>th'] = { ":lua require('nvterm.terminal').toggle('horizontal')<CR>", "Terminal Toggle Horizontal" },
-    ['<leader>tv'] = { ":lua require('nvterm.terminal').toggle('vertical')<CR>", "Terminal Toggle Vertical" },
-    ['<leader>tf'] = { ":lua require('nvterm.terminal').toggle('float')<CR>", "Terminal Toggle Float" },
+    ['<leader>th'] = {
+      ":lua require('nvterm.terminal').toggle('horizontal')<CR>",
+      "Terminal Toggle Horizontal",
+    },
+    ['<leader>tv'] = {
+      ":lua require('nvterm.terminal').toggle('vertical')<CR>",
+      "Terminal Toggle Vertical",
+    },
+    ['<leader>tf'] = {
+      ":lua require('nvterm.terminal').toggle('float')<CR>",
+      "Terminal Toggle Float",
+    },
     ['<leader>tn'] = { name = '+new' },
-    ['<leader>tnh'] = { ":lua require('nvterm.terminal').new('horizontal')<CR>", "Terminal New Horizontal" },
-    ['<leader>tnv'] = { ":lua require('nvterm.terminal').new('vertical')<CR>", "Terminal New Vertical" },
+    ['<leader>tnh'] = {
+      ":lua require('nvterm.terminal').new('horizontal')<CR>",
+      "Terminal New Horizontal",
+    },
+    ['<leader>tnv'] = {
+      ":lua require('nvterm.terminal').new('vertical')<CR>",
+      "Terminal New Vertical",
+    },
 
     ["<leader>d"] = { name = "+debugging" },
     ["<leader>du"] = { ":lua require('dapui').toggle()<CR>", "" },
@@ -35,6 +50,11 @@ wk.register({
 
     ["<leader>p"] = { name = "+pane" },
     ["<leader>pd"] = { ":TroubleToggle<CR>", "Trouble Toggle" },
+
+    ["<leader>b"] = { name = "+buffer" },
+    ["<leader>bb"] = { ":ls<CR>", "List Buffers" },
+    ["<leader>bn"] = { ":bn<CR>", "Buffer Next" },
+    ["<leader>bp"] = { ":bp<CR>", "Buffer Prev" },
 })
 
 map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
