@@ -26,42 +26,8 @@ local plugins = {
 		end,
 	},
 
-	{
-		"nmac427/guess-indent.nvim",
-		config = function()
-			require("guess-indent").setup({})
-		end,
-	},
-
-	-- {
-	--   "Darazaki/indent-o-matic",
-	--   config = function()
-	--     require("indent-o-matic").setup({
-	--       standard_widths = { 2, 4 }
-	--     })
-	--   end,
-	-- },
-
-	{
-		"akinsho/bufferline.nvim",
-		config = function()
-			require("bufferline").setup({
-				options = {
-					offsets = {
-						{ filetype = "NvimTree" },
-					},
-				},
-			})
-		end,
-	},
 	{ "MunifTanjim/nui.nvim" },
 	{ "nvim-lua/plenary.nvim" },
-	{
-		"nvim-lualine/lualine.nvim",
-		config = function()
-			require('lualine').setup()
-		end,
-	},
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -84,11 +50,18 @@ local plugins = {
 			})
 		end,
 	},
+
 	{
 		"echasnovski/mini.nvim",
 		version = "*",
 		config = function()
 			require("mini.indentscope").setup()
+			require('mini.comment').setup()
+			require('mini.bracketed').setup()
+			require('mini.bufremove').setup()
+			require('mini.move').setup()
+			require('mini.tabline').setup()
+			require('mini.statusline').setup()
 		end,
 	},
 
