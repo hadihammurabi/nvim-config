@@ -7,6 +7,7 @@ vim.opt.shiftwidth = 2
 vim.opt.list = true
 -- vim.opt.listchars:append "eol:¬"
 vim.opt.termguicolors = true
+vim.opt.cursorline = true
 
 vim.g.mapleader = ' '
 vim.g.loaded_netrw = 1
