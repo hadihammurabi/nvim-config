@@ -55,6 +55,7 @@ wk.register({
     ["<leader>bb"] = { ":ls<CR>", "List Buffers" },
     ["<leader>bn"] = { ":bn<CR>", "Buffer Next" },
     ["<leader>bp"] = { ":bp<CR>", "Buffer Prev" },
+    ["<leader>bd"] = { ":lua MiniBufremove.delete()<CR>", "Buffer Close" },
 })
 
 map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
