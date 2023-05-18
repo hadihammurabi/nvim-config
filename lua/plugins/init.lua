@@ -53,21 +53,6 @@ local plugins = {
 	},
 
 	{
-		"echasnovski/mini.nvim",
-		version = "*",
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require("mini.indentscope").setup()
-			require('mini.comment').setup()
-			require('mini.bracketed').setup()
-			require('mini.bufremove').setup()
-			require('mini.move').setup()
-			require('mini.tabline').setup()
-			require('mini.statusline').setup()
-		end,
-	},
-
-	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
@@ -119,7 +104,6 @@ local plugins = {
 
 	{
 		"nvim-tree/nvim-tree.lua",
-		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("nvim-tree").setup({
 				view = {
@@ -147,7 +131,6 @@ local plugins = {
 
 	{
 		"folke/tokyonight.nvim",
-		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			vim.cmd.colorscheme("tokyonight-night")
 		end,
@@ -210,6 +193,15 @@ for p = 1, table.getn(dap) do
 	table.insert(plugins, dap[p])
 end
 
-return plugins
+local dap = require('plugins.dap')
+for p = 1, table.getn(dap) do
+	table.insert(plugins, dap[p])
+end
 
+local mini = require('plugins.mini')
+for p = 1, table.getn(mini) do
+	table.insert(plugins, mini[p])
+end
+
+return plugins
 
