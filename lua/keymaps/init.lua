@@ -56,6 +56,9 @@ wk.register({
     ["<leader>bn"] = { ":bn<CR>", "Buffer Next" },
     ["<leader>bp"] = { ":bp<CR>", "Buffer Prev" },
     ["<leader>bd"] = { ":lua MiniBufremove.delete()<CR>", "Buffer Close" },
+
+    ["<leader>g"] = { name = "+git" },
+    ["<leader>gl"] = { ":terminal lazygit<CR>", "Lazygit" },
 })
 
 map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
