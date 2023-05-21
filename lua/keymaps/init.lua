@@ -59,6 +59,16 @@ wk.register({
 
     ["<leader>g"] = { name = "+git" },
     ["<leader>gl"] = { ":terminal lazygit<CR>", "Lazygit" },
+
+    ["<leader>l"] = { name = "+LSP" },
+    ["<leader>lD"] = { ":lua vim.lsp.buf.declaration()<CR>", "Goto Declaration" },
+    ["<leader>ld"] = { ":lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
+    ["<leader>lt"] = { ":lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
+    ["<leader>lr"] = { ":lua vim.lsp.buf.rename()<CR>", "Rename All" },
+    ["<leader>la"] = { ":lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+    ["<leader>lf"] = { ":lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
+    ["<leader>lh"] = { ":lua vim.lsp.buf.hover()<CR>", "Hover" },
+
 })
 
 map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
