@@ -1,8 +1,6 @@
 require("options")
 
 vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format({ async = true }) ]])
-vim.cmd([[autocmd CursorMovedI * lua vim.lsp.buf.hover() ]])
-vim.cmd([[autocmd InsertEnter * lua vim.lsp.buf.hover() ]])
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

@@ -27,11 +27,12 @@ return {
 					["<leader>lr"] = { ":lua vim.lsp.buf.rename()<CR>", "Rename All" },
 					["<leader>la"] = { ":lua vim.lsp.buf.code_action()<CR>", "Code Action" },
 					["<leader>lf"] = { ":lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
+					["<leader>lh"] = { ":lua vim.lsp.buf.hover()<CR>", "Hover" },
 				})
 			end
 
 			local lsp = require("lspconfig")
-			lsp.gopls.setup({
+      lsp.gopls.setup({
 				on_attach = on_attach,
 			})
 			lsp.rust_analyzer.setup({
