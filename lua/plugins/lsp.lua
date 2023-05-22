@@ -1,9 +1,15 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+    dependencies = {
+      "ray-x/lsp_signature.nvim",
+    },
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			local on_attach = function(client, bufnr)
+        require "lsp_signature".on_attach({
+          bind = true,
+        }, bufnr)
 				vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 				local bufopts = { noremap = true, silent = true, buffer = bufnr }
