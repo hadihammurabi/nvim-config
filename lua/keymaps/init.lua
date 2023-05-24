@@ -18,6 +18,7 @@ wk.register({
     ["<leader>fz"] = { ":Telescope current_buffer_fuzzy_find<CR>", "Find Text" },
     ["<leader>fg"] = { ":Telescope live_grep<CR>", "Find Text In Workspace" },
     ["<leader>fd"] = { ":Telescope diagnostics<CR>", "Diagnostics Search" },
+    ["<leader>fs"] = { ":Telescope possession list<CR>", "Search Saved Session" },
 
     ['<leader>t'] = { name = '+terminal' },
     ['<leader>th'] = {

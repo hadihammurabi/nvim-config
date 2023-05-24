@@ -4,9 +4,12 @@ return {
 	{ 'nvim-telescope/telescope-file-browser.nvim' },
 	{
 		"nvim-telescope/telescope.nvim",
-		event = { "BufReadPost", "BufNewFile" },
+    dependencies = {
+      "jedrzejboczar/possession.nvim",
+    },
 		config = function()
 			require("telescope").setup({})
+      require('telescope').load_extension('possession')
 		end,
 	},
 }
