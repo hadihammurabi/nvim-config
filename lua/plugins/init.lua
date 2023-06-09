@@ -48,7 +48,7 @@ local plugins = {
 				},
 				show_trailing_blankline_indent = false,
 				show_current_context = true,
-			})
+ 			})
 		end,
 	},
 
@@ -61,6 +61,7 @@ local plugins = {
 			vim.cmd(":TSEnable highlight")
 		end,
 	},
+
 	{
 		'nvim-treesitter/nvim-treesitter-context',
 		event = { "BufReadPost", "BufNewFile" },
@@ -108,7 +109,14 @@ local plugins = {
 			require("nvim-tree").setup({
 				view = {
 					side = "right",
+          hide_root_folder = true,
 				},
+        update_focused_file = {
+          enable = true,
+        },
+        git = {
+          ignore = false,
+        },
 			})
 		end,
 	},
