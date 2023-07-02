@@ -14,7 +14,7 @@ wk.register({
     ["<leader>f"] = { name = "+find" },
     ["<leader>ff"] = { ":Telescope find_files<CR>", "Find Files" },
     ["<leader>fb"] = { ":Telescope buffers<CR>", "Find Opened Buffers" },
-    ["<leader>fl"] = { ":Telescope lsp_document_symbols<CR>", "Find Symbols" } ,
+    ["<leader>fo"] = { ":Telescope lsp_document_symbols<CR>", "Find Symbols (Outline)" } ,
     ["<leader>fz"] = { ":Telescope current_buffer_fuzzy_find<CR>", "Find Text" },
     ["<leader>fg"] = { ":Telescope live_grep<CR>", "Find Text In Workspace" },
     ["<leader>fd"] = { ":Telescope diagnostics<CR>", "Diagnostics Search" },
