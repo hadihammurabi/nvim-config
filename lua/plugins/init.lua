@@ -109,13 +109,15 @@ local plugins = {
 			require("nvim-tree").setup({
 				view = {
 					side = "right",
-          hide_root_folder = true,
 				},
         update_focused_file = {
           enable = true,
         },
         git = {
           ignore = false,
+        },
+        renderer = {
+          root_folder_label = false,
         },
 			})
 		end,
@@ -141,6 +143,7 @@ local plugins = {
 		"folke/tokyonight.nvim",
 		config = function()
 			vim.cmd.colorscheme("tokyonight-night")
+			-- vim.cmd.colorscheme("tokyonight-day")
 		end,
 	},
 
