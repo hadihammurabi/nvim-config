@@ -5,6 +5,7 @@ vim.opt.number = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.list = true
+vim.opt.mouse = c
 -- vim.opt.listchars:append "eol:¬"
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
