@@ -4,7 +4,7 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.mouse = c
 -- vim.opt.listchars:append "eol:¬"
 vim.opt.termguicolors = true
