@@ -60,6 +60,9 @@ wk.register({
 
     ["<leader>g"] = { name = "+git" },
     ["<leader>gl"] = { ":terminal lazygit<CR>", "Lazygit" },
+    ["<leader>gd"] = { ":Gitsigns preview_hunk<CR>", "Diff Line" },
+    ["<leader>gD"] = { ":Gitsigns diffthis HEAD<CR>", "Diff File" },
+    ["<leader>gb"] = { ":Gitsigns blame_line<CR>", "Blame Line" },
 
     ["<leader>l"] = { name = "+LSP" },
     ["<leader>lD"] = { ":lua vim.lsp.buf.declaration()<CR>", "Goto Declaration" },
