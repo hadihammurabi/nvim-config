@@ -13,6 +13,7 @@ return {
 			{ "hrsh7th/nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ 'hrsh7th/cmp-buffer' },
+			{ 'hrsh7th/cmp-cmdline' },
 			-- { 'tzachar/cmp-tabnine' },
 			{ 'hrsh7th/cmp-path' },
 			{ "L3MON4D3/LuaSnip" },
@@ -49,6 +50,20 @@ return {
 				},
 			})
 
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          {
+            name = 'cmdline',
+            option = {
+              ignore_cmds = { 'Man', '!' }
+            }
+          }
+        })
+      })
+
 			local M = {}
 			function M.expand_or_jump()
 				if ls.expand_or_jumpable() then
@@ -63,6 +78,7 @@ return {
 			end
 
 			vim.keymap.set("i", "<c-i>", M.expand_or_jump)
+      
 		end,
 	},
 }
