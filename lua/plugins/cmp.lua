@@ -31,6 +31,7 @@ return {
 			require("luasnip.loaders.from_vscode").lazy_load({})
 			local cmp = require("cmp")
 			local ls = require("luasnip")
+      require('snippets.go')(ls)
 
 			cmp.setup({
 				sources = cmp.config.sources({
