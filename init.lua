@@ -3,6 +3,7 @@ require("options")
 vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format({ async = true }) ]])
 vim.cmd([[autocmd TermOpen * startinsert]])
 vim.cmd([[autocmd TextChanged *.* update]])
+vim.cmd([[au BufWritePre * :call feedkeys(":nohls\n")]])
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
