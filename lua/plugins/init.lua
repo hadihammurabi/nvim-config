@@ -193,6 +193,12 @@ local plugins = {
     end,
   },
 
+  {
+    'unblevable/quick-scope',
+    config = function()
+    end,
+  }
+
 }
 
 local telescope = require('plugins.telescope')
