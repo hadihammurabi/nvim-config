@@ -40,49 +40,6 @@ local plugins = {
 	},
 
 	{
-		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require("nvim-treesitter.configs").setup({})
-			vim.cmd(":TSUpdate")
-			vim.cmd(":TSEnable highlight")
-		end,
-	},
-
-	{
-		'nvim-treesitter/nvim-treesitter-context',
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require('treesitter-context').setup({
-				patterns = {
-					default = {
-						'class',
-						'function',
-						'method',
-						'for', -- These won't appear in the context
-						'while',
-						'if',
-						'switch',
-						'case',
-						'element',
-						'call'
-					},
-				},
-			})
-		end,
-	},
-
-	{
-		"windwp/nvim-ts-autotag",
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require("nvim-ts-autotag").setup({
-				filetypes = { "html", "xml" },
-			})
-		end,
-	},
-
-	{
 		"nvim-tree/nvim-web-devicons",
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
@@ -187,6 +144,11 @@ local plugins = {
   }
 
 }
+
+local treesitter = require('plugins.treesitter')
+for p = 1, table.getn(treesitter) do
+	table.insert(plugins, treesitter[p])
+end
 
 local telescope = require('plugins.telescope')
 for p = 1, table.getn(telescope) do
