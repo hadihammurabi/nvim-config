@@ -14,17 +14,17 @@ local plugins = {
 		end,
 	},
 
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			local nl = require("null-ls")
-			nl.setup({
-				sources = {
-					nl.builtins.formatting.goimports,
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"jose-elias-alvarez/null-ls.nvim",
+	-- 	config = function()
+	-- 		local nl = require("null-ls")
+	-- 		nl.setup({
+	-- 			sources = {
+	-- 				nl.builtins.formatting.goimports,
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 
 	{ "MunifTanjim/nui.nvim" },
 	{ "nvim-lua/plenary.nvim" },
@@ -191,6 +191,11 @@ end
 local mini = require('plugins.mini')
 for p = 1, table.getn(mini) do
 	table.insert(plugins, mini[p])
+end
+
+local formatter = require('plugins.formatter')
+for p = 1, table.getn(formatter) do
+	table.insert(plugins, formatter[p])
 end
 
 return plugins
