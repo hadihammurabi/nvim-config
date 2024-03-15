@@ -83,21 +83,20 @@ local plugins = {
     end,
   },
 
-  -- {
-  -- 	"folke/tokyonight.nvim",
-  -- 	config = function()
-  -- 		-- vim.cmd.colorscheme("tokyonight-night")
-  -- 		-- vim.cmd.colorscheme("tokyonight-day")
-  -- 	end,
-  -- },
-
   {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000,
+    "bluz71/vim-nightfly-colors",
     config = function()
-      vim.cmd.colorscheme("onedark_dark")
+      vim.cmd.colorscheme("nightfly")
     end,
   },
+
+  -- {
+  --   "olimorris/onedarkpro.nvim",
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme("onedark_dark")
+  --   end,
+  -- },
 
   { "dstein64/vim-startuptime" },
 

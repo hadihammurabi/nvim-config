@@ -9,8 +9,8 @@ vim.opt.mouse = c
 -- vim.opt.listchars:append "eol:¬"
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
+vim.opt.syntax = 'enable'
 
 vim.g.mapleader = ' '
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
