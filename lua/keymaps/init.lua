@@ -69,10 +69,16 @@ wk.register({
     ["<leader>lt"] = { ":lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
     ["<leader>lr"] = { ":lua vim.lsp.buf.rename()<CR>", "Rename All" },
     ["<leader>la"] = { ":lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-    ["<leader>lf"] = { ":lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
+    ["<leader>lf"] = { ":lua require'conform'.format({ async=false, lsp_fallback=true, timeout_ms=500})<CR>", "Format" },
     ["<leader>lh"] = { ":lua vim.lsp.buf.hover()<CR>", "Hover" },
-
 })
+
+wk.register({
+  l = {
+    name = "+LSP",
+    f = { ":lua require'conform'.format({ async=false, lsp_fallback=true, timeout_ms=500})<CR>", "Format" },
+  },
+}, { prefix='<leader>', mode='v'})
 
 map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
 map("n", "<C-s>", ":w<CR>", { silent = true })
