@@ -1,4 +1,4 @@
-local plugins = {
+return {
   {
     "folke/which-key.nvim",
     config = function()
@@ -124,50 +124,3 @@ local plugins = {
   },
 
 }
-
-local treesitter = require('plugins.treesitter')
-for p = 1, table.getn(treesitter) do
-  table.insert(plugins, treesitter[p])
-end
-
-local telescope = require('plugins.telescope')
-for p = 1, table.getn(telescope) do
-  table.insert(plugins, telescope[p])
-end
-
-local lsp = require('plugins.lsp')
-for p = 1, table.getn(lsp) do
-  table.insert(plugins, lsp[p])
-end
-
-local cmp = require('plugins.cmp')
-for p = 1, table.getn(cmp) do
-  table.insert(plugins, cmp[p])
-end
-
-local mason = require('plugins.mason')
-for p = 1, table.getn(mason) do
-  table.insert(plugins, mason[p])
-end
-
-local dap = require('plugins.dap')
-for p = 1, table.getn(dap) do
-  table.insert(plugins, dap[p])
-end
-
-local dap = require('plugins.dap')
-for p = 1, table.getn(dap) do
-  table.insert(plugins, dap[p])
-end
-
-local mini = require('plugins.mini')
-for p = 1, table.getn(mini) do
-  table.insert(plugins, mini[p])
-end
-
-local formatter = require('plugins.formatter')
-for p = 1, table.getn(formatter) do
-  table.insert(plugins, formatter[p])
-end
-
-return plugins
