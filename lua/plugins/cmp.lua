@@ -5,12 +5,6 @@ local has_words_before = function()
 end
 
 return {
-  -- {
-  -- 	'tzachar/cmp-tabnine',
-  -- 	build = './install.sh',
-  -- 	dependencies = 'hrsh7th/nvim-cmp',
-  -- },
-
   {
     "VonHeikemen/lsp-zero.nvim",
     event = { "BufReadPost", "BufNewFile" },
@@ -20,7 +14,10 @@ return {
       { "hrsh7th/cmp-nvim-lsp" },
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-cmdline' },
-      -- { 'tzachar/cmp-tabnine' },
+      {
+        'tzachar/cmp-tabnine',
+        build = './install.sh',
+      },
       { 'hrsh7th/cmp-path' },
       { "L3MON4D3/LuaSnip" },
       { "saadparwaiz1/cmp_luasnip" },
@@ -37,9 +34,9 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "buffer" },
-          -- { name = "cmp_tabnine" },
+          { name = "cmp_tabnine" },
           { name = "path" },
-          { name = "luasnip", option = { show_autosnippets = false } },
+          { name = "luasnip",    option = { show_autosnippets = false } },
         }),
 
         mapping = cmp.mapping.preset.insert({
