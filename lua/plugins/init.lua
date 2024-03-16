@@ -14,18 +14,6 @@ local plugins = {
     end,
   },
 
-  -- {
-  -- 	"jose-elias-alvarez/null-ls.nvim",
-  -- 	config = function()
-  -- 		local nl = require("null-ls")
-  -- 		nl.setup({
-  -- 			sources = {
-  -- 				nl.builtins.formatting.goimports,
-  -- 			},
-  -- 		})
-  -- 	end,
-  -- },
-
   { "MunifTanjim/nui.nvim" },
   { "nvim-lua/plenary.nvim" },
 

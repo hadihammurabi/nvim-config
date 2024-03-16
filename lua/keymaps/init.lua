@@ -1,91 +1,104 @@
 function map(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local options = { noremap = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
-
-map('i', 'jk', '<ESC>', { silent = true })
-map('i', 'kj', '<ESC>', { silent = true })
 
 local wk = require('which-key')
 wk.register({
-    ["<leader>f"] = { name = "+find" },
-    ["<leader>ff"] = { ":Telescope find_files<CR>", "Find Files" },
-    ["<leader>fo"] = { ":Telescope lsp_document_symbols<CR>", "Find Symbols (Outline)" } ,
-    ["<leader>fz"] = { ":Telescope current_buffer_fuzzy_find<CR>", "Find Text" },
-    ["<leader>fg"] = { ":Telescope live_grep<CR>", "Find Text In Workspace" },
-    ["<leader>fd"] = { ":Telescope diagnostics<CR>", "Diagnostics Search" },
-    ["<leader>fs"] = { ":Telescope possession list<CR>", "Search Saved Session" },
+  f = {
+    name = "+find",
+    f = { ":Telescope find_files<CR>", "Find Files" },
+    o = { ":Telescope lsp_document_symbols<CR>", "Find Symbols (Outline)" },
+    z = { ":Telescope current_buffer_fuzzy_find<CR>", "Find Text" },
+    g = { ":Telescope live_grep<CR>", "Find Text In Workspace" },
+    d = { ":Telescope diagnostics<CR>", "Diagnostics Search" },
+    s = { ":Telescope possession list<CR>", "Search Saved Session" },
+  },
 
-    ['<leader>t'] = { name = '+terminal' },
-    ['<leader>th'] = {
+  t = {
+    name = '+terminal',
+    h = {
       ":lua require('nvterm.terminal').toggle('horizontal')<CR>",
       "Terminal Toggle Horizontal",
     },
-    ['<leader>tv'] = {
+    v = {
       ":lua require('nvterm.terminal').toggle('vertical')<CR>",
       "Terminal Toggle Vertical",
     },
-    ['<leader>tf'] = {
+    f = {
       ":lua require('nvterm.terminal').toggle('float')<CR>",
       "Terminal Toggle Float",
     },
-    ['<leader>tn'] = { name = '+new' },
-    ['<leader>tnh'] = {
+    n = { name = '+new' },
+    nh = {
       ":lua require('nvterm.terminal').new('horizontal')<CR>",
       "Terminal New Horizontal",
     },
-    ['<leader>tnv'] = {
+    nv = {
       ":lua require('nvterm.terminal').new('vertical')<CR>",
       "Terminal New Vertical",
     },
+  },
 
-    ["<leader>d"] = { name = "+debugging" },
-    ["<leader>du"] = { ":lua require('dapui').toggle()<CR>", "" },
-    ["<leader>db"] = { ":DapToggleBreakpoint<CR>", "" },
-    ["<leader>dc"] = { ":DapContinue<CR>", "" },
-    ["<leader>dt"] = { ":DapTerminate<CR>", "" },
+  d = {
+    name = "+debugging",
+    u = { ":lua require('dapui').toggle()<CR>", "" },
+    b = { ":DapToggleBreakpoint<CR>", "" },
+    c = { ":DapContinue<CR>", "" },
+    t = { ":DapTerminate<CR>", "" },
+  },
 
-    ["<leader>p"] = { name = "+pane" },
-    ["<leader>pd"] = { ":TroubleToggle<CR>", "Trouble Toggle" },
+  p = {
+    name = "+pane",
+    d = { ":TroubleToggle<CR>", "Trouble Toggle" },
+  },
 
-    ["<leader>b"] = { name = "+buffer" },
-    ["<leader>bb"] = { ":ls<CR>", "List Buffers" },
-    ["<leader>bn"] = { ":bn<CR>", "Buffer Next" },
-    ["<leader>bp"] = { ":bp<CR>", "Buffer Prev" },
-    ["<leader>bd"] = { ":lua MiniBufremove.delete()<CR>", "Buffer Close" },
+  b = {
+    name = "+buffer",
+    b = { ":ls<CR>", "List Buffers" },
+    n = { ":bn<CR>", "Buffer Next" },
+    p = { ":bp<CR>", "Buffer Prev" },
+    d = { ":lua MiniBufremove.delete()<CR>", "Buffer Close" },
+  },
 
-    ["<leader>g"] = { name = "+git" },
-    ["<leader>gl"] = { ":terminal lazygit<CR>", "Lazygit" },
-    ["<leader>gd"] = { ":Gitsigns preview_hunk<CR>", "Diff Line" },
-    ["<leader>gD"] = { ":Gitsigns diffthis HEAD<CR>", "Diff File" },
-    ["<leader>gb"] = { ":Gitsigns blame_line<CR>", "Blame Line" },
+  g = {
+    name = "+git",
+    l = { ":terminal lazygit<CR>", "Lazygit" },
+    d = { ":Gitsigns preview_hunk<CR>", "Diff Line" },
+    D = { ":Gitsigns diffthis HEAD<CR>", "Diff File" },
+    b = { ":Gitsigns blame_line<CR>", "Blame Line" },
+  },
 
-    ["<leader>l"] = { name = "+LSP" },
-    ["<leader>lD"] = { ":lua vim.lsp.buf.declaration()<CR>", "Goto Declaration" },
-    ["<leader>ld"] = { ":lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
-    ["<leader>lt"] = { ":lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
-    ["<leader>lr"] = { ":lua vim.lsp.buf.rename()<CR>", "Rename All" },
-    ["<leader>la"] = { ":lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-    ["<leader>lf"] = { ":lua require'conform'.format({ async=false, lsp_fallback=true, timeout_ms=500})<CR>", "Format" },
-    ["<leader>lh"] = { ":lua vim.lsp.buf.hover()<CR>", "Hover" },
-})
+  l = {
+    name = "+LSP",
+    D = { ":lua vim.lsp.buf.declaration()<CR>", "Goto Declaration" },
+    d = { ":lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
+    t = { ":lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
+    r = { ":lua vim.lsp.buf.rename()<CR>", "Rename All" },
+    a = { ":lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+    f = { ":lua require'conform'.format({ async=false, lsp_fallback=true, timeout_ms=500})<CR>", "Format" },
+    h = { ":lua vim.lsp.buf.hover()<CR>", "Hover" },
+  },
+}, { prefix = '<leader>', mode = 'n' })
 
 wk.register({
   l = {
     name = "+LSP",
     f = { ":lua require'conform'.format({ async=false, lsp_fallback=true, timeout_ms=500})<CR>", "Format" },
   },
-}, { prefix='<leader>', mode='v'})
+}, { prefix = '<leader>', mode = 'v' })
 
-map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
-map("n", "<C-s>", ":w<CR>", { silent = true })
-map("n", "]]", ":lua require'illuminate'.goto_next_reference(false)<CR>", { silent = true })
-map("n", "[[", ":lua require'illuminate'.goto_prev_reference(false)<CR>", { silent = true })
+-- map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
+-- map("n", "]]", ":lua require'illuminate'.goto_next_reference(false)<CR>", { silent = true })
+-- map("n", "[[", ":lua require'illuminate'.goto_prev_reference(false)<CR>", { silent = true })
 map("n", "/", ":Telescope current_buffer_fuzzy_find<CR>", { silent = true })
 
+map("n", "<C-s>", ":w<CR>", { silent = true })
 map("i", "<C-s>", "<esc>:w<CR>", { silent = true })
 map("i", "<Tab>", "<Tab>", { silent = true })
 
+map('i', 'jk', '<ESC>', { silent = true })
+map('i', 'kj', '<ESC>', { silent = true })
