@@ -71,20 +71,20 @@ return {
     end,
   },
 
-  {
-    "bluz71/vim-nightfly-colors",
-    config = function()
-      vim.cmd.colorscheme("nightfly")
-    end,
-  },
-
   -- {
-  --   "olimorris/onedarkpro.nvim",
-  --   priority = 1000,
+  --   "bluz71/vim-nightfly-colors",
   --   config = function()
-  --     vim.cmd.colorscheme("onedark_dark")
+  --     vim.cmd.colorscheme("nightfly")
   --   end,
   -- },
+
+  {
+    "bluz71/vim-moonfly-colors",
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("moonfly")
+    end,
+  },
 
   { "dstein64/vim-startuptime" },
 
