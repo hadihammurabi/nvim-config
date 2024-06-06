@@ -34,26 +34,31 @@ return {
       require("nvim-web-devicons").setup()
     end,
   },
-
   {
-    "nvim-tree/nvim-tree.lua",
-    config = function()
-      require("nvim-tree").setup({
-        view = {
-          side = "right",
-        },
-        update_focused_file = {
-          enable = true,
-        },
-        git = {
-          ignore = false,
-        },
-        renderer = {
-          root_folder_label = false,
-        },
-      })
-    end,
+    'kevinhwang91/rnvimr',
   },
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   config = function()
+  --     require("nvim-tree").setup({
+  --       view = {
+  --         float = {
+  --           enable = true,
+  --         },
+  --       },
+  --       update_focused_file = {
+  --         enable = false,
+  --       },
+  --       git = {
+  --         ignore = false,
+  --       },
+  --       renderer = {
+  --         group_empty = true,
+  --         root_folder_label = false,
+  --       },
+  --     })
+  --   end,
+  -- },
 
   {
     'folke/trouble.nvim',
@@ -88,25 +93,25 @@ return {
 
   { "dstein64/vim-startuptime" },
 
-  -- {
-  -- 	"NvChad/nvterm",
-  -- 	event = { "BufReadPost", "BufNewFile" },
-  -- 	config = function()
-  -- 		require("nvterm").setup({
-  -- 			terminals = {
-  -- 				shell = "/usr/local/bin/fish",
-  -- 				type_opts = {
-  -- 					float = {
-  -- 						width = 0.8,
-  -- 						height = 0.6,
-  -- 						row = 0.2,
-  -- 						col = 0.1,
-  -- 					},
-  -- 				},
-  -- 			},
-  -- 		})
-  -- 	end,
-  -- },
+  {
+    "NvChad/nvterm",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("nvterm").setup({
+        terminals = {
+          shell = "/usr/bin/fish",
+          type_opts = {
+            float = {
+              width = 0.8,
+              height = 0.6,
+              row = 0.2,
+              col = 0.1,
+            },
+          },
+        },
+      })
+    end,
+  },
 
   {
     'jedrzejboczar/possession.nvim',

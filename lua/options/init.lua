@@ -12,5 +12,16 @@ vim.opt.cursorline = true
 vim.opt.syntax = 'enable'
 
 vim.g.mapleader = ' '
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
+vim.g.netrw_sort_sequence = [[[\/]$,*]]
+vim.g.netrw_sizestyle = "H"
+
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+
+vim.g.rnvimr_enable_ex = 1
+vim.g.rnvimr_enable_picker = 1
+vim.g.rnvimr_ranger_cmd = {'ranger', '--cmd=set draw_borders both'}
+

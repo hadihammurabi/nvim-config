@@ -18,29 +18,34 @@ wk.register({
     s = { ":Telescope possession list<CR>", "Search Saved Session" },
   },
 
+  --  t = {
+  --    name = '+terminal',
+  --    h = {
+  --      ":lua require('nvterm.terminal').toggle('horizontal')<CR>",
+  --      "Terminal Toggle Horizontal",
+  --    },
+  --    v = {
+  --      ":lua require('nvterm.terminal').toggle('vertical')<CR>",
+  --      "Terminal Toggle Vertical",
+  --    },
+  --    f = {
+  --      ":lua require('nvterm.terminal').toggle('float')<CR>",
+  --      "Terminal Toggle Float",
+  --    },
+  --    n = { name = '+new' },
+  --    nh = {
+  --      ":lua require('nvterm.terminal').new('horizontal')<CR>",
+  --      "Terminal New Horizontal",
+  --    },
+  --    nv = {
+  --      ":lua require('nvterm.terminal').new('vertical')<CR>",
+  --      "Terminal New Vertical",
+  --    },
+  --  },
+
   t = {
-    name = '+terminal',
-    h = {
-      ":lua require('nvterm.terminal').toggle('horizontal')<CR>",
-      "Terminal Toggle Horizontal",
-    },
-    v = {
-      ":lua require('nvterm.terminal').toggle('vertical')<CR>",
-      "Terminal Toggle Vertical",
-    },
-    f = {
-      ":lua require('nvterm.terminal').toggle('float')<CR>",
-      "Terminal Toggle Float",
-    },
-    n = { name = '+new' },
-    nh = {
-      ":lua require('nvterm.terminal').new('horizontal')<CR>",
-      "Terminal New Horizontal",
-    },
-    nv = {
-      ":lua require('nvterm.terminal').new('vertical')<CR>",
-      "Terminal New Vertical",
-    },
+    name = "+tree",
+    f = { ":RnvimrToggle<CR>", "File" }
   },
 
   d = {
