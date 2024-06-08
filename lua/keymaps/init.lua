@@ -50,10 +50,11 @@ wk.register({
 
   d = {
     name = "+debugging",
-    u = { ":lua require('dapui').toggle()<CR>", "" },
-    b = { ":DapToggleBreakpoint<CR>", "" },
-    c = { ":DapContinue<CR>", "" },
-    t = { ":DapTerminate<CR>", "" },
+    u = { ":lua require('dapui').toggle()<CR>", "Show UI" },
+    b = { ":DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
+    c = { ":DapContinue<CR>", "Continue" },
+    t = { ":DapTerminate<CR>", "Terminate" },
+    B = { ":lua require'dap'.clear_breakpoints()<CR>", "Clear All Breakpoints" }
   },
 
   p = {
