@@ -76,6 +76,7 @@ wk.register({
     d = { ":Gitsigns preview_hunk<CR>", "Diff Line" },
     D = { ":Gitsigns diffthis HEAD<CR>", "Diff File" },
     b = { ":Gitsigns blame_line<CR>", "Blame Line" },
+    r = { ":Gitsigns reset_hunk<CR>", "Blame Line" },
   },
 
   l = {
