@@ -54,7 +54,8 @@ wk.register({
     b = { ":DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
     c = { ":DapContinue<CR>", "Continue" },
     t = { ":DapTerminate<CR>", "Terminate" },
-    B = { ":lua require'dap'.clear_breakpoints()<CR>", "Clear All Breakpoints" }
+    B = { ":lua require'dap'.clear_breakpoints()<CR>", "Clear All Breakpoints" },
+    r = { ":lua require'dap'.restart()<CR>", "Restart Current Session" }
   },
 
   p = {

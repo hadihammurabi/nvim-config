@@ -91,6 +91,13 @@ return {
     end,
   },
 
+  {
+    'xiyaowong/transparent.nvim',
+    -- config = function()
+    --   require("transparent").setup()
+    -- end,
+  },
+
   { "dstein64/vim-startuptime" },
 
   {

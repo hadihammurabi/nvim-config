@@ -14,6 +14,7 @@ vim.opt.smartcase = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 -- vim.opt.listchars:append "eol:¬"
+vim.g.transparent_enabled = true
 
 vim.g.mapleader = ' '
 
