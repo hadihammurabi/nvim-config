@@ -7,6 +7,7 @@ return {
     },
     event = { "BufReadPost", "BufNewFile" },
     config = function()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
       local on_attach = function(client, bufnr)
         require "lsp_signature".on_attach({
           bind = true,
@@ -41,14 +42,27 @@ return {
       })
       lsp.tsserver.setup {
         on_attach = on_attach,
-        capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-      }
+        capabilities = capabilities, }
       lsp.sqlls.setup {
         on_attach = on_attach,
       }
       lsp.lua_ls.setup {
         on_attach = on_attach,
       }
+
+      lsp.volar.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        filetypes = { 'vue' },
+        init_options = {
+          languageFeatures = {
+            completion = {
+              defaultTagNameCase = 'both',
+              defaultAttrNameCase = 'kebabCase',
+            },
+          },
+        },
+      })
 
       require('mason').setup({
         ui = {
