@@ -2,7 +2,14 @@
 
 A highly opinionated Neovim setup tailored for GoLang, Rust, TypeScript, SQL, Lua, and general development.
 
-![Neovim Configuration](https://github.com/hadihammurabi/nvim-config/assets/16364286/296366a5-5660-4447-95a5-12cc03e5a5ae)
+
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+  <img src="https://res.cloudinary.com/ds2haxmjz/image/upload/v1724737569/neovim/qxudg81qcuaprdhymwi1.png" alt="Neovim Configuration" style="width: 100%; height: auto;"/>
+  <img src="https://res.cloudinary.com/ds2haxmjz/image/upload/v1724736388/neovim/gzcqwjoklqs3fcufs3i0.png" alt="Neovim picture" style="width: 100%; height: auto;"/>
+  <img src="https://res.cloudinary.com/ds2haxmjz/image/upload/v1724736370/neovim/wygofkcr20xtedwyx8rr.png" alt="Neovim picture" style="width: 100%; height: auto;"/>
+  <img src="https://res.cloudinary.com/ds2haxmjz/image/upload/v1724736336/neovim/qvrzb86jat6sgjy5cxtn.png" alt="Neovim picture" style="width: 100%; height: auto;"/>
+
+</div>
 
 ## Goals
 
@@ -19,6 +26,7 @@ This setup provides a familiar editor experience with:
   - TypeScript
   - SQL
   - Lua
+  - Vue
 
 - **Autoformatting:**
   - Go (using `goimports`)
@@ -26,6 +34,7 @@ This setup provides a familiar editor experience with:
   - TypeScript
   - SQL
   - Lua
+  - Vue
 
 ## Mappings
 
