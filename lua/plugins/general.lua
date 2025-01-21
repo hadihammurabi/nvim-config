@@ -5,10 +5,6 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
       require("which-key").setup({
-        -- window = {
-        --   border = "rounded",
-        --   padding = { 2, 2, 2, 2 },
-        -- },
         triggers = { "<leader>" },
       })
     end,
@@ -34,31 +30,10 @@ return {
       require("nvim-web-devicons").setup()
     end,
   },
+
   {
     'kevinhwang91/rnvimr',
   },
-  -- {
-  --   "nvim-tree/nvim-tree.lua",
-  --   config = function()
-  --     require("nvim-tree").setup({
-  --       view = {
-  --         float = {
-  --           enable = true,
-  --         },
-  --       },
-  --       update_focused_file = {
-  --         enable = false,
-  --       },
-  --       git = {
-  --         ignore = false,
-  --       },
-  --       renderer = {
-  --         group_empty = true,
-  --         root_folder_label = false,
-  --       },
-  --     })
-  --   end,
-  -- },
 
   {
     'folke/trouble.nvim',
@@ -76,13 +51,6 @@ return {
     end,
   },
 
-  -- {
-  --   "bluz71/vim-nightfly-colors",
-  --   config = function()
-  --     vim.cmd.colorscheme("nightfly")
-  --   end,
-  -- },
-
   {
     "bluz71/vim-moonfly-colors",
     priority = 1000,
@@ -93,9 +61,6 @@ return {
 
   {
     'xiyaowong/transparent.nvim',
-    -- config = function()
-    --   require("transparent").setup()
-    -- end,
   },
 
   { "dstein64/vim-startuptime" },
@@ -135,4 +100,46 @@ return {
     end,
   },
 
+  {
+    'akinsho/flutter-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+      local on_attach = function(client, bufnr)
+        local bufopts = { noremap = true, silent = true, buffer = bufnr }
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+        require "lsp_signature".on_attach({ bind = true }, bufnr)
+      end
+
+      require("flutter-tools").setup {
+        ui = {
+          border = "rounded",
+        },
+        decorations = {
+          statusline = {
+            app_version = true,
+            device = true,
+          },
+        },
+        debugger = {
+          enabled = true,
+          run_via_dap = true,
+        },
+        widget_guides = {
+          enabled = true,
+        },
+        dev_log = {
+          enabled = true,
+        },
+        lsp = {
+          on_attach = on_attach,
+          capabilities = capabilities,
+        },
+      }
+    end,
+  },
 }

@@ -15,7 +15,7 @@ return {
         vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
@@ -40,9 +40,11 @@ return {
           "rust-analyzer",
         },
       })
-      lsp.tsserver.setup {
+      lsp.ts_ls.setup({
         on_attach = on_attach,
-        capabilities = capabilities, }
+        capabilities = capabilities,
+      })
+           
       lsp.sqlls.setup {
         on_attach = on_attach,
       }
