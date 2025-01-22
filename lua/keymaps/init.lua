@@ -63,5 +63,3 @@ map("i", "<Tab>", "<Tab>", { silent = true })
 
 map('i', 'jk', '<ESC>', { silent = true })
 map('i', 'kj', '<ESC>', { silent = true })
-map('n', '<leader>dn', ':lua vim.diagnostic.goto_next()<CR>', { silent = true })
-map('n', '<leader>dp', ':lua vim.diagnostic.goto_prev()<CR>', { silent = true })
