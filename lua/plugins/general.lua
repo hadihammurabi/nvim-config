@@ -5,6 +5,10 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
       require("which-key").setup({
+        -- window = {
+        --   border = "rounded",
+        --   padding = { 2, 2, 2, 2 },
+        -- },
         triggers = { "<leader>" },
       })
     end,
@@ -35,6 +39,29 @@ return {
     'kevinhwang91/rnvimr',
   },
 
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   config = function()
+  --     require("nvim-tree").setup({
+  --       view = {
+  --         float = {
+  --           enable = true,
+  --         },
+  --       },
+  --       update_focused_file = {
+  --         enable = false,
+  --       },
+  --       git = {
+  --         ignore = false,
+  --       },
+  --       renderer = {
+  --         group_empty = true,
+  --         root_folder_label = false,
+  --       },
+  --     })
+  --   end,
+  -- },
+
   {
     'folke/trouble.nvim',
     event = { "BufReadPost", "BufNewFile" },
@@ -51,6 +78,13 @@ return {
     end,
   },
 
+  -- {
+  --   "bluz71/vim-nightfly-colors",
+  --   config = function()
+  --     vim.cmd.colorscheme("nightfly")
+  --   end,
+  -- },
+
   {
     "bluz71/vim-moonfly-colors",
     priority = 1000,
@@ -61,6 +95,9 @@ return {
 
   {
     'xiyaowong/transparent.nvim',
+    -- config = function()
+    --   require("transparent").setup()
+    -- end,
   },
 
   { "dstein64/vim-startuptime" },
