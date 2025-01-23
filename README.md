@@ -28,6 +28,7 @@ This setup provides a familiar editor experience with:
   - Lua
   - Vue
   - Dart
+  - Kotlin
 
 - **Autoformatting:**
   - Go (using `goimports`)
@@ -37,6 +38,7 @@ This setup provides a familiar editor experience with:
   - Lua
   - Vue
   - Dart
+  - Kotlin 
 
 ## Mappings
 
@@ -134,6 +136,7 @@ This setup integrates several language servers and tools to enhance development 
   - **Lua**: `lua_ls` - Adds Lua language support.
   - **Vue**: `volar` - Provides language features for Vue files.
   - **Dart**: `dartls` - Adds Dart language support for Flutter and other Dart projects. 
+  - **Kotlin**: `kotlin_language_server` - Adds Kotlin language support. 
 
 - **LSP Features:**
   - **Signature Help**: Shows function signatures and documentation.
