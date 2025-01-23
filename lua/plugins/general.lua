@@ -136,4 +136,8 @@ return {
       }
     end,
   },
+  {
+    "udalov/kotlin-vim",
+    ft = "kotlin",
+  },
 }
