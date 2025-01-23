@@ -27,6 +27,7 @@ This setup provides a familiar editor experience with:
   - SQL
   - Lua
   - Vue
+  - Dart
 
 - **Autoformatting:**
   - Go (using `goimports`)
@@ -35,6 +36,7 @@ This setup provides a familiar editor experience with:
   - SQL
   - Lua
   - Vue
+  - Dart
 
 ## Mappings
 
@@ -131,6 +133,7 @@ This setup integrates several language servers and tools to enhance development 
   - **SQL**: `sqlls` - Adds SQL language support.
   - **Lua**: `lua_ls` - Adds Lua language support.
   - **Vue**: `volar` - Provides language features for Vue files.
+  - **Dart**: `dartls` - Adds Dart language support for Flutter and other Dart projects. 
 
 - **LSP Features:**
   - **Signature Help**: Shows function signatures and documentation.
