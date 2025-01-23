@@ -5,11 +5,6 @@ return {
     'stevearc/dressing.nvim',
   },
   config = function()
-    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-    local on_attach = function(client, bufnr)
-      require "lsp_signature".on_attach({ bind = true }, bufnr)
-    end
-
     require("flutter-tools").setup {
       ui = {
         border = "rounded",
@@ -34,9 +29,8 @@ return {
         enabled = true,
       },
       lsp = {
-        on_attach = on_attach,
-        capabilities = capabilities,
-      },
+        enabled = false,
+      }
     }
   end,
 }
