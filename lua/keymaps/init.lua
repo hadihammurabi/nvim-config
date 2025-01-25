@@ -6,8 +6,17 @@ function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+function mapf(mode, lhs, rhs, opts)
+  local options = { noremap = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
+end
+
 local wk = require('which-key')
 wk.add({
+  { "<leader>q",  ":q<CR>",                                                                              desc = "Quit" },
   { "<leader>b",  group = "buffer" },
   { "<leader>bb", ":ls<CR>",                                                                             desc = "List Buffers" },
   { "<leader>bd", ":lua MiniBufremove.delete()<CR>",                                                     desc = "Buffer Close" },
@@ -23,9 +32,10 @@ wk.add({
   { "<leader>f",  group = "find" },
   { "<leader>fd", ":Telescope diagnostics<CR>",                                                          desc = "Diagnostics Search" },
   { "<leader>ff", ":Telescope find_files<CR>",                                                           desc = "Find Files" },
+  { "<leader>fb", ":Telescope buffers<CR>",                                                              desc = "Find Opened Buffers" },
   { "<leader>fg", ":Telescope live_grep<CR>",                                                            desc = "Find Text In Workspace" },
   { "<leader>fo", ":Telescope lsp_document_symbols<CR>",                                                 desc = "Find Symbols (Outline)" },
-  { "<leader>fs", ":Telescope possession list<CR>",                                                      desc = "Search Saved Session" },
+  -- { "<leader>fs", ":Telescope possession list<CR>",                                                      desc = "Search Saved Session" },
   { "<leader>fz", ":Telescope current_buffer_fuzzy_find<CR>",                                            desc = "Find Text" },
   { "<leader>g",  group = "git" },
   { "<leader>gD", ":Gitsigns diffthis HEAD<CR>",                                                         desc = "Diff File" },
@@ -63,3 +73,15 @@ map("i", "<Tab>", "<Tab>", { silent = true })
 
 map('i', 'jk', '<ESC>', { silent = true })
 map('i', 'kj', '<ESC>', { silent = true })
+map('v', '<C-r>', '"hy:%s/<C-r>h//gc<left><left><left>')
+
+local ls = require("luasnip")
+
+mapf({ "i" }, "<C-K>", function() ls.expand() end, { silent = true })
+mapf({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
+mapf({ "i", "s" }, "<C-J>", function() ls.jump(-1) end, { silent = true })
+mapf({ "i", "s" }, "<C-E>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end, { silent = true })
