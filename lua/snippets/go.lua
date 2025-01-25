@@ -5,10 +5,21 @@ return function(ls)
 
   ls.add_snippets('go', {
     s('iferr', {
-      t{"if err != nil {"},
-      t{"", ""}, i(1),
-      t{"", "}"},
+      t { "if err != nil {" }, t { "", "" },
+      i(1),
+      t { "", "}" },
+    }),
+
+    s('ftest', {
+      t { "func Test" }, i(1), t { "(t *testing.T) {" },
+      i(0),
+      t { "}" },
+    }),
+
+    s("fhttp", {
+      t("func "), i(1), t("(w http.ResponseWriter, r *http.Request) {"), t { "", "" },
+      i(0), t { "", "" },
+      t("}"),
     }),
   })
-
 end
