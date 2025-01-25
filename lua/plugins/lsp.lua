@@ -4,6 +4,10 @@ return {
     dependencies = {
       "ray-x/lsp_signature.nvim",
       "williamboman/mason.nvim",
+      {
+        "udalov/kotlin-vim",
+        ft = "kotlin",
+      },
     },
     event = { "bufreadpost", "bufnewfile" },
     config = function()
@@ -65,7 +69,6 @@ return {
         on_attach = on_attach,
         capabilities = capabilities,
       })
-      }
       lsp.ocamlls.setup {
         on_attach = on_attach,
       }

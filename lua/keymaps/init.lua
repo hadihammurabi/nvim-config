@@ -52,7 +52,7 @@ wk.add({
   { "<leader>lr", ":lua vim.lsp.buf.rename()<CR>",                                                       desc = "Rename All" },
   { "<leader>lt", ":lua vim.lsp.buf.type_definition()<CR>",                                              desc = "Goto Type Definition" },
   { "<leader>p",  group = "pane" },
-  { "<leader>pd", ":TroubleToggle<CR>",                                                                  desc = "Trouble Toggle" },
+  { "<leader>pd", ":Trouble diagnostics<CR>",                                                            desc = "Trouble Toggle" },
   { "<leader>t",  group = "tree" },
   { "<leader>tf", ":RnvimrToggle<CR>",                                                                   desc = "File" },
 })

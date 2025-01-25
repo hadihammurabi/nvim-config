@@ -1,14 +1,11 @@
 return {
+  { "dstein64/vim-startuptime" },
   {
     "folke/which-key.nvim",
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
       require("which-key").setup({
-        -- window = {
-        --   border = "rounded",
-        --   padding = { 2, 2, 2, 2 },
-        -- },
         triggers = { "<leader>" },
       })
     end,
@@ -35,9 +32,7 @@ return {
     end,
   },
 
-  {
-    'kevinhwang91/rnvimr',
-  },
+  { 'kevinhwang91/rnvimr' },
 
   -- {
   --   "nvim-tree/nvim-tree.lua",
@@ -79,6 +74,9 @@ return {
   },
 
   {
+    'xiyaowong/transparent.nvim',
+  },
+  {
     "folke/tokyonight.nvim",
     config = function()
       vim.cmd.colorscheme("tokyonight-night")
@@ -92,52 +90,40 @@ return {
   --   end,
   -- },
 
+  -- {
+  --   "NvChad/nvterm",
+  --   event = { "BufReadPost", "BufNewFile" },
+  --   config = function()
+  --     require("nvterm").setup({
+  --       terminals = {
+  --         shell = "/usr/bin/fish",
+  --         type_opts = {
+  --           float = {
+  --             width = 0.8,
+  --             height = 0.6,
+  --             row = 0.2,
+  --             col = 0.1,
+  --           },
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
 
-  {
-    'xiyaowong/transparent.nvim',
-    -- config = function()
-    --   require("transparent").setup()
-    -- end,
-  },
+  -- {
+  --   'jedrzejboczar/possession.nvim',
+  --   dependencies = { 'nvim-lua/plenary.nvim' },
+  --   config = function()
+  --     require('possession').setup {
+  --       commands = {
+  --         save = 'SSave',
+  --         load = 'SLoad',
+  --         delete = 'SDelete',
+  --         list = 'SList',
+  --       }
+  --     }
+  --   end,
+  -- },
 
-  { "dstein64/vim-startuptime" },
 
-  {
-    "NvChad/nvterm",
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("nvterm").setup({
-        terminals = {
-          shell = "/usr/bin/fish",
-          type_opts = {
-            float = {
-              width = 0.8,
-              height = 0.6,
-              row = 0.2,
-              col = 0.1,
-            },
-          },
-        },
-      })
-    end,
-  },
-
-  {
-    'jedrzejboczar/possession.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('possession').setup {
-        commands = {
-          save = 'SSave',
-          load = 'SLoad',
-          delete = 'SDelete',
-          list = 'SList',
-        }
-      }
-    end,
-  },
-  {
-    "udalov/kotlin-vim",
-    ft = "kotlin",
-  },
 }
