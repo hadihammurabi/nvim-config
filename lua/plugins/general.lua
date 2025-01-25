@@ -34,9 +34,11 @@ return {
       require("nvim-web-devicons").setup()
     end,
   },
+
   {
     'kevinhwang91/rnvimr',
   },
+
   -- {
   --   "nvim-tree/nvim-tree.lua",
   --   config = function()
@@ -134,5 +136,8 @@ return {
       }
     end,
   },
-
+  {
+    "udalov/kotlin-vim",
+    ft = "kotlin",
+  },
 }

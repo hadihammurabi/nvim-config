@@ -5,25 +5,14 @@ return {
       "ray-x/lsp_signature.nvim",
       "williamboman/mason.nvim",
     },
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "bufreadpost", "bufnewfile" },
     config = function()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
       local on_attach = function(client, bufnr)
         require "lsp_signature".on_attach({
           bind = true,
         }, bufnr)
         vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-        -- vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-        -- vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-        -- vim.keymap.set('n', '<leader>wl', function()
-        --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        -- end, bufopts)
       end
 
       local lsp = require("lspconfig")
@@ -39,16 +28,43 @@ return {
           "rust-analyzer",
         },
       })
-      lsp.tsserver.setup {
+      lsp.ts_ls.setup({
         on_attach = on_attach,
-        capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-      }
-      lsp.sqlls.setup {
+        capabilities = capabilities,
+      })
+
+      lsp.sqlls.setup({
         on_attach = on_attach,
-      }
-      lsp.lua_ls.setup {
+      })
+
+      lsp.lua_ls.setup({
         on_attach = on_attach,
-      }
+      })
+
+
+      lsp.volar.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        filetypes = { 'vue' },
+        init_options = {
+          languagefeatures = {
+            completion = {
+              defaulttagnamecase = 'both',
+              defaultattrnamecase = 'kebabcase',
+            },
+          },
+        },
+      })
+
+      lsp.dartls.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
+
+      lsp.kotlin_language_server.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
 
       require('mason').setup({
         ui = {
