@@ -1,11 +1,4 @@
 return {
-  -- {
-  --   "williamboman/mason.nvim",
-  --   event = { "BufReadPost", "BufNewFile" },
-  --   config = function()
-  --     require("mason").setup()
-  --   end,
-  -- },
 
   -- {
   --   "jay-babu/mason-nvim-dap.nvim",

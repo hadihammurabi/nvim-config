@@ -13,6 +13,8 @@ return {
 
   { "MunifTanjim/nui.nvim" },
   { "nvim-lua/plenary.nvim" },
+  { "mikavilpas/yazi.nvim" },
+  { "mikavilpas/tsugit.nvim" },
 
   {
     "lukas-reineke/indent-blankline.nvim",

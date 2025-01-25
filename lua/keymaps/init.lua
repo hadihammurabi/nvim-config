@@ -41,7 +41,7 @@ wk.add({
   { "<leader>gD", ":Gitsigns diffthis HEAD<CR>",                                                         desc = "Diff File" },
   { "<leader>gb", ":Gitsigns blame_line<CR>",                                                            desc = "Blame Line" },
   { "<leader>gd", ":Gitsigns preview_hunk<CR>",                                                          desc = "Diff Line" },
-  { "<leader>gl", ":terminal lazygit<CR>",                                                               desc = "Lazygit" },
+  { "<leader>gl", ":lua require('tsugit').toggle()<CR>",                                                 desc = "Lazygit" },
   { "<leader>gr", ":Gitsigns reset_hunk<CR>",                                                            desc = "Blame Line" },
   { "<leader>l",  group = "LSP" },
   { "<leader>lD", ":lua vim.lsp.buf.declaration()<CR>",                                                  desc = "Goto Declaration" },
@@ -54,7 +54,7 @@ wk.add({
   { "<leader>p",  group = "pane" },
   { "<leader>pd", ":Trouble diagnostics<CR>",                                                            desc = "Trouble Toggle" },
   { "<leader>t",  group = "tree" },
-  { "<leader>tf", ":RnvimrToggle<CR>",                                                                   desc = "File" },
+  { "<leader>tf", ":Yazi toggle<CR>",                                                                    desc = "File" },
 })
 
 wk.add({
@@ -75,13 +75,18 @@ map('i', 'jk', '<ESC>', { silent = true })
 map('i', 'kj', '<ESC>', { silent = true })
 map('v', '<C-r>', '"hy:%s/<C-r>h//gc<left><left><left>')
 
-local ls = require("luasnip")
-
-mapf({ "i" }, "<C-K>", function() ls.expand() end, { silent = true })
-mapf({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
-mapf({ "i", "s" }, "<C-J>", function() ls.jump(-1) end, { silent = true })
-mapf({ "i", "s" }, "<C-E>", function()
-  if ls.choice_active() then
-    ls.change_choice(1)
+vim.keymap.set({ 'i', 's' }, '<Tab>', function()
+  if vim.snippet.active({ direction = 1 }) then
+    return '<Cmd>lua vim.snippet.jump(1)<CR>'
+  else
+    return '<Tab>'
   end
-end, { silent = true })
+end, { expr = true })
+
+vim.keymap.set({ 'i', 's' }, '<S-Tab>', function()
+  if vim.snippet.active({ direction = 1 }) then
+    return '<Cmd>lua vim.snippet.jump(-1)<CR>'
+  else
+    return '<S-Tab>'
+  end
+end, { expr = true })
