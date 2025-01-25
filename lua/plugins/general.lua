@@ -78,6 +78,13 @@ return {
     end,
   },
 
+  {
+    "folke/tokyonight.nvim",
+    config = function()
+      vim.cmd.colorscheme("tokyonight-night")
+    end,
+  },
+
   -- {
   --   "bluz71/vim-nightfly-colors",
   --   config = function()
@@ -85,13 +92,6 @@ return {
   --   end,
   -- },
 
-  {
-    "bluz71/vim-moonfly-colors",
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("moonfly")
-    end,
-  },
 
   {
     'xiyaowong/transparent.nvim',

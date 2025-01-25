@@ -65,6 +65,10 @@ return {
         on_attach = on_attach,
         capabilities = capabilities,
       })
+      }
+      lsp.ocamlls.setup {
+        on_attach = on_attach,
+      }
 
       require('mason').setup({
         ui = {
