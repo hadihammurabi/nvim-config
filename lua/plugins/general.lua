@@ -13,7 +13,12 @@ return {
 
   { "MunifTanjim/nui.nvim" },
   { "nvim-lua/plenary.nvim" },
-  { "mikavilpas/yazi.nvim" },
+  {
+    "mikavilpas/yazi.nvim",
+    opts = {
+      floating_window_scaling_factor = 1,
+    },
+  },
   { "mikavilpas/tsugit.nvim" },
 
   {
