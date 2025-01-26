@@ -1,20 +1,3 @@
-function map(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
-function mapf(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.keymap.set(mode, lhs, rhs, options)
-end
-
-local wk = require('which-key')
 local normal = {
   { "<leader>q",  ":q<CR>",                                                                              desc = "Quit" },
   { "<leader>b",  group = "buffer" },
@@ -62,35 +45,29 @@ local visual = {
   { "<leader>lf", ":lua require'conform'.format({ async=false, lsp_fallback=true, timeout_ms=500})<CR>", desc = "Format", mode = "v" },
 }
 
-
 local wk = require('which-key')
 wk.add(normal)
 wk.add(visual)
+
+local map = require('utils.map').map
+map("n", "/", ":Telescope current_buffer_fuzzy_find<CR>", { silent = true })
+map("n", "<C-s>", ":w<CR>", { silent = true })
+
+map("i", "<C-s>", "<esc>:w<CR>", { silent = true })
+map("i", "<Tab>", "<Tab>", { silent = true })
+map('i', 'jk', '<ESC>', { silent = true })
+map('i', 'kj', '<ESC>', { silent = true })
+
+map('v', '<C-r>', '"hy:%s/<C-r>h//gc<left><left><left>')
 -- map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
 -- map("n", "]]", ":lua require'illuminate'.goto_next_reference(false)<CR>", { silent = true })
 -- map("n", "[[", ":lua require'illuminate'.goto_prev_reference(false)<CR>", { silent = true })
-map("n", "/", ":Telescope current_buffer_fuzzy_find<CR>", { silent = true })
 
-map("n", "<C-s>", ":w<CR>", { silent = true })
-map("i", "<C-s>", "<esc>:w<CR>", { silent = true })
-map("i", "<Tab>", "<Tab>", { silent = true })
+local mapf = require('utils.map').mapf
+local snippet = require('utils.map').snippet
 
-map('i', 'jk', '<ESC>', { silent = true })
-map('i', 'kj', '<ESC>', { silent = true })
-map('v', '<C-r>', '"hy:%s/<C-r>h//gc<left><left><left>')
+mapf('i', '<Tab>', snippet(1), { expr = true })
+mapf('i', '<S-Tab>', snippet(-1), { expr = true })
 
-vim.keymap.set({ 'i', 's' }, '<Tab>', function()
-  if vim.snippet.active({ direction = 1 }) then
-    return '<Cmd>lua vim.snippet.jump(1)<CR>'
-  else
-    return '<Tab>'
-  end
-end, { expr = true })
-
-vim.keymap.set({ 'i', 's' }, '<S-Tab>', function()
-  if vim.snippet.active({ direction = 1 }) then
-    return '<Cmd>lua vim.snippet.jump(-1)<CR>'
-  else
-    return '<S-Tab>'
-  end
-end, { expr = true })
+mapf('s', '<Tab>', snippet(1), { expr = true })
+mapf('s', '<S-Tab>', snippet(-1), { expr = true })
