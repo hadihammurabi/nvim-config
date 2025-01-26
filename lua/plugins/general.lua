@@ -19,7 +19,6 @@ return {
       floating_window_scaling_factor = 1,
     },
   },
-  { "mikavilpas/tsugit.nvim" },
 
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -39,31 +38,6 @@ return {
     end,
   },
 
-  { 'kevinhwang91/rnvimr' },
-
-  -- {
-  --   "nvim-tree/nvim-tree.lua",
-  --   config = function()
-  --     require("nvim-tree").setup({
-  --       view = {
-  --         float = {
-  --           enable = true,
-  --         },
-  --       },
-  --       update_focused_file = {
-  --         enable = false,
-  --       },
-  --       git = {
-  --         ignore = false,
-  --       },
-  --       renderer = {
-  --         group_empty = true,
-  --         root_folder_label = false,
-  --       },
-  --     })
-  --   end,
-  -- },
-
   {
     'folke/trouble.nvim',
     event = { "BufReadPost", "BufNewFile" },
@@ -80,9 +54,7 @@ return {
     end,
   },
 
-  {
-    'xiyaowong/transparent.nvim',
-  },
+  { 'xiyaowong/transparent.nvim' },
   {
     "folke/tokyonight.nvim",
     config = function()
