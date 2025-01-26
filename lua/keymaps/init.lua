@@ -15,7 +15,7 @@ function mapf(mode, lhs, rhs, opts)
 end
 
 local wk = require('which-key')
-wk.add({
+local normal = {
   { "<leader>q",  ":q<CR>",                                                                              desc = "Quit" },
   { "<leader>b",  group = "buffer" },
   { "<leader>bb", ":ls<CR>",                                                                             desc = "List Buffers" },
@@ -41,7 +41,7 @@ wk.add({
   { "<leader>gD", ":Gitsigns diffthis HEAD<CR>",                                                         desc = "Diff File" },
   { "<leader>gb", ":Gitsigns blame_line<CR>",                                                            desc = "Blame Line" },
   { "<leader>gd", ":Gitsigns preview_hunk<CR>",                                                          desc = "Diff Line" },
-  { "<leader>gl", ":lua require('tsugit').toggle()<CR>",                                                 desc = "Lazygit" },
+  -- { "<leader>gl", ":lua require('tsugit').toggle()<CR>",                                                 desc = "Lazygit" },
   { "<leader>gr", ":Gitsigns reset_hunk<CR>",                                                            desc = "Blame Line" },
   { "<leader>l",  group = "LSP" },
   { "<leader>lD", ":lua vim.lsp.buf.declaration()<CR>",                                                  desc = "Goto Declaration" },
@@ -55,13 +55,17 @@ wk.add({
   { "<leader>pd", ":Trouble diagnostics<CR>",                                                            desc = "Trouble Toggle" },
   { "<leader>t",  group = "tree" },
   { "<leader>tf", ":Yazi toggle<CR>",                                                                    desc = "File" },
-})
+}
 
-wk.add({
+local visual = {
   { "<leader>l",  group = "LSP",                                                                         mode = "v" },
   { "<leader>lf", ":lua require'conform'.format({ async=false, lsp_fallback=true, timeout_ms=500})<CR>", desc = "Format", mode = "v" },
-})
+}
 
+
+local wk = require('which-key')
+wk.add(normal)
+wk.add(visual)
 -- map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
 -- map("n", "]]", ":lua require'illuminate'.goto_next_reference(false)<CR>", { silent = true })
 -- map("n", "[[", ":lua require'illuminate'.goto_prev_reference(false)<CR>", { silent = true })
