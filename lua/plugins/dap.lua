@@ -8,6 +8,7 @@ return {
       "theHamsta/nvim-dap-virtual-text",
       "nvim-neotest/nvim-nio",
     },
+    cmd = { "DapContinue" },
     config = function()
       require("mason-nvim-dap").setup({})
       require("nvim-dap-virtual-text").setup()

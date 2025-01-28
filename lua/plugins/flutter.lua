@@ -3,8 +3,11 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'stevearc/dressing.nvim',
+    "nvim-telescope/telescope.nvim",
   },
+  ft = { "dart" },
   config = function()
+    require("telescope").load_extension("flutter")
     require("flutter-tools").setup {
       ui = {
         border = "rounded",

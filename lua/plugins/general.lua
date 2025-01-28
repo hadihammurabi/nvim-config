@@ -1,5 +1,8 @@
 return {
-  { "dstein64/vim-startuptime" },
+  {
+    "dstein64/vim-startuptime",
+    cmd = { "StartupTime" },
+  },
   {
     "folke/which-key.nvim",
     config = function()
@@ -40,7 +43,7 @@ return {
 
   {
     'folke/trouble.nvim',
-    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "Trouble" },
     config = function()
       require('trouble').setup()
     end,

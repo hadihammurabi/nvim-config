@@ -35,10 +35,6 @@ return {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "saghen/blink.cmp",
-      {
-        "udalov/kotlin-vim",
-        ft = "kotlin",
-      },
     },
     event = { "bufreadpost", "bufnewfile" },
     opts = {
