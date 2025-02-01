@@ -1,0 +1,47 @@
+{
+  "ire": {
+    "prefix": "ire",
+    "body": [
+      "if err != nil {",
+      "\t$0",
+      "}"
+    ]
+  },
+  "crudh": {
+    "prefix": "crudh",
+    "body": [
+      "func Get$1(w http.ResponseWriter, r *http.Request) {",
+      "\t$0",
+      "}",
+      "func Get$1ByID(w http.ResponseWriter, r *http.Request) {",
+      "}",
+      "func Post$1(w http.ResponseWriter, r *http.Request) {",
+      "}",
+      "func Put$1(w http.ResponseWriter, r *http.Request) {",
+      "}",
+      "func Delete$1(w http.ResponseWriter, r *http.Request) {",
+      "}"
+    ]
+  },
+  "cruds": {
+    "prefix": "cruds",
+    "body": [
+      "func $1Get(ctx context.Context) ([]$2, error) {",
+      "\t$0",
+      "\treturn nil, nil",
+      "}",
+      "func $1GetByID(ctx context.Context, id string) ($2, error) {",
+      "\treturn nil, nil",
+      "}",
+      "func $1Create(ctx context.Context, input any) ($2, error) {",
+      "\treturn nil, nil",
+      "}",
+      "func $1Update(ctx context.Context, id string) ($2, error){",
+      "\treturn nil, nil",
+      "}",
+      "func $1Delete(ctx context.Context, id string) error {",
+      "\treturn nil",
+      "}"
+    ]
+  }
+}
