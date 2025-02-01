@@ -3,7 +3,7 @@ local servers = {
   gopls = {},
   ts_ls = {},
   sqlls = {},
-  ast_grep = {}, -- Dart
+  dartls = { install = false }, -- Dart
   ocamllsp = {},
   kotlin_language_server = {},
   rust_analyzer = {
@@ -48,9 +48,17 @@ return {
         }, bufnr)
         vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
       end
+
+      local mason_ensure_lsps = vim.iter(pairs(opts.servers)):map(function(k, v)
+        if v.install == nil or v.install == true then
+          return k
+        end
+        return ''
+      end):filter(function(k) return k ~= '' end):totable()
       require("mason-lspconfig").setup {
-        ensure_installed = vim.iter(pairs(opts.servers)):map(function(k) return k end):totable(),
+        ensure_installed = mason_ensure_lsps,
       }
+
       for server, config in pairs(opts.servers) do
         config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
         config.on_attach = on_attach
