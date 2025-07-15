@@ -12,7 +12,7 @@ return {
         format_on_save = {
           async = false,
           lsp_fallback = true,
-          timeout_ms = 500,
+          timeout_ms = 3000,
         }
       })
     end
