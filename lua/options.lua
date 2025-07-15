@@ -15,6 +15,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 -- vim.opt.listchars:append "eol:¬"
 vim.g.transparent_enabled = true
+vim.g.loaded_snippet = 1
 
 vim.g.mapleader = ' '
 

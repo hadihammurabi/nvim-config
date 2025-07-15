@@ -42,27 +42,25 @@ return {
     },
     config = function(_, opts)
       local lspconfig = require('lspconfig')
-      local on_attach = function(client, bufnr)
+      local on_attach = function(_, bufnr)
         require "lsp_signature".on_attach({
           bind = true,
         }, bufnr)
         vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
       end
 
-      local mason_ensure_lsps = vim.iter(pairs(opts.servers)):map(function(k, v)
-        if v.install == nil or v.install == true then
-          return k
+      local mr = require('mason-registry')
+      for lsp, config in pairs(opts.servers) do
+        if config.install == nil or config.install == true then
+          local package = mr.get_package(lsp)
+          if not package:is_installed() then
+            package:install()
+          end
         end
-        return ''
-      end):filter(function(k) return k ~= '' end):totable()
-      require("mason-lspconfig").setup {
-        ensure_installed = mason_ensure_lsps,
-      }
 
-      for server, config in pairs(opts.servers) do
         config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
         config.on_attach = on_attach
-        lspconfig[server].setup(config)
+        lspconfig[lsp].setup(config)
       end
     end,
   },

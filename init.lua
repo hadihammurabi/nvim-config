@@ -22,4 +22,11 @@ require("lazy").setup('plugins', {
     notify = false,
   },
 })
+vim.diagnostic.config({
+  virtual_text = true, -- inline errors
+  signs = true,        -- sign column
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
 require('keymaps')
