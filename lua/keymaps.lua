@@ -52,6 +52,8 @@ wk.add(visual)
 local map = require('utils.map').map
 map("n", "/", ":Telescope current_buffer_fuzzy_find<CR>", { silent = true })
 map("n", "<C-s>", ":w<CR>", { silent = true })
+map('n', '[g', ':Gitsigns next_hunk<CR>', { silent = true })
+map('n', ']g', ':Gitsigns prev_hunk<CR>', { silent = true })
 
 map("i", "<C-s>", "<esc>:w<CR>", { silent = true })
 map("i", "<Tab>", "<Tab>", { silent = true })
