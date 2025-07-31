@@ -66,6 +66,19 @@ return {
     end,
   },
 
+  {
+    "mistricky/codesnap.nvim", build="make",
+    event = "VeryLazy",
+    config = function()
+      require('codesnap').setup{
+        watermark = '',
+        bg_padding = 0,
+        has_breadcrumbs = true,
+        mac_window_bar = false,
+      }
+    end,
+  },
+
   -- {
   --   "bluz71/vim-nightfly-colors",
   --   config = function()
