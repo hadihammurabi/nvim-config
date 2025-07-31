@@ -13,13 +13,11 @@ local normal = {
   { "<leader>dt", ":DapTerminate<CR>",                                                                   desc = "Terminate" },
   { "<leader>du", ":lua require('dapui').toggle()<CR>",                                                  desc = "Show UI" },
   { "<leader>f",  group = "find" },
-  { "<leader>fd", ":Telescope diagnostics<CR>",                                                          desc = "Diagnostics Search" },
-  { "<leader>ff", ":Telescope find_files<CR>",                                                           desc = "Find Files" },
-  { "<leader>fb", ":Telescope buffers<CR>",                                                              desc = "Find Opened Buffers" },
-  { "<leader>fg", ":Telescope live_grep<CR>",                                                            desc = "Find Text In Workspace" },
-  { "<leader>fo", ":Telescope lsp_document_symbols<CR>",                                                 desc = "Find Symbols (Outline)" },
-  -- { "<leader>fs", ":Telescope possession list<CR>",                                                      desc = "Search Saved Session" },
-  { "<leader>fz", ":Telescope current_buffer_fuzzy_find<CR>",                                            desc = "Find Text" },
+  { "<leader>fd", ":Pick diagnostic<CR>",                                                          desc = "Diagnostics Search" },
+  { "<leader>ff", ":Pick files<CR>",                                                           desc = "Find Files" },
+  { "<leader>fb", ":Pick buffers<CR>",                                                              desc = "Find Opened Buffers" },
+  { "<leader>fg", ":Pick grep_live<CR>",                                                            desc = "Find Text In Workspace" },
+  { "<leader>fo", ":lua MiniExtra.pickers.lsp({ scope = 'document_symbol' })<CR>",                                                 desc = "Find Symbols (Outline)" },
   { "<leader>g",  group = "git" },
   { "<leader>gD", ":Gitsigns diffthis HEAD<CR>",                                                         desc = "Diff File" },
   { "<leader>gb", ":Gitsigns blame_line<CR>",                                                            desc = "Blame Line" },
@@ -36,8 +34,7 @@ local normal = {
   { "<leader>lt", ":lua vim.lsp.buf.type_definition()<CR>",                                              desc = "Goto Type Definition" },
   { "<leader>p",  group = "pane" },
   { "<leader>pd", ":Trouble diagnostics<CR>",                                                            desc = "Trouble Toggle" },
-  { "<leader>t",  group = "tree" },
-  { "<leader>tf", ":Yazi toggle<CR>",                                                                    desc = "File" },
+  { "<leader>pf", ":lua MiniFiles.open()<CR>",                                                            desc = "Trouble Toggle" },
 }
 
 local visual = {
@@ -50,7 +47,6 @@ wk.add(normal)
 wk.add(visual)
 
 local map = require('utils.map').map
-map("n", "/", ":Telescope current_buffer_fuzzy_find<CR>", { silent = true })
 map("n", "<C-s>", ":w<CR>", { silent = true })
 map('n', '[g', ':Gitsigns next_hunk<CR>', { silent = true })
 map('n', ']g', ':Gitsigns prev_hunk<CR>', { silent = true })

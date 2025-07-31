@@ -15,14 +15,6 @@ return {
   },
 
   { "MunifTanjim/nui.nvim" },
-  { "nvim-lua/plenary.nvim" },
-  {
-    "mikavilpas/yazi.nvim",
-    event = "VeryLazy",
-    opts = {
-      floating_window_scaling_factor = 1,
-    },
-  },
 
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -31,14 +23,6 @@ return {
     config = function()
       vim.opt.termguicolors = true
       require("ibl").setup()
-    end,
-  },
-
-  {
-    "nvim-tree/nvim-web-devicons",
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("nvim-web-devicons").setup()
     end,
   },
 
