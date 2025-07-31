@@ -36,11 +36,16 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "saghen/blink.cmp",
     },
-    event = { "bufreadpost", "bufnewfile" },
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       servers = servers,
     },
     config = function(_, opts)
+      require("mason-lspconfig").setup({
+        ensure_installed = vim.tbl_keys(opts.servers),
+        automatic_enable = false,
+      })
+
       local lspconfig = require('lspconfig')
       local on_attach = function(_, bufnr)
         require "lsp_signature".on_attach({
@@ -48,10 +53,6 @@ return {
         }, bufnr)
         vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
       end
-
-      require("mason-lspconfig").setup({
-        ensure_installed = vim.tbl_keys(opts.servers),
-      })
 
       for lsp, config in pairs(opts.servers) do
         config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
@@ -62,6 +63,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require('mason').setup({
         ui = {

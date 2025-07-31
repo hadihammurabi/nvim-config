@@ -20,9 +20,10 @@ return {
     end,
   },
   {
-    "echasnovski/mini.pick", version = '*',
-    dependencies = {"echasnovski/mini.nvim"},
-    event = 'VeryLazy',
+    "echasnovski/mini.pick",
+    version = '*',
+    dependencies = { "echasnovski/mini.nvim" },
+    cmd = { "Pick" },
     config = function()
       require('mini.pick').setup()
       vim.cmd [[

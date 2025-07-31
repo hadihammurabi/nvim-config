@@ -5,6 +5,7 @@ return {
   },
   {
     "folke/which-key.nvim",
+    cmd = { "WhichKey" },
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
@@ -13,8 +14,6 @@ return {
       })
     end,
   },
-
-  { "MunifTanjim/nui.nvim" },
 
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -51,10 +50,11 @@ return {
   },
 
   {
-    "mistricky/codesnap.nvim", build="make",
-    event = "VeryLazy",
+    "mistricky/codesnap.nvim",
+    build = "make",
+    cmd = { "CodeSnap" },
     config = function()
-      require('codesnap').setup{
+      require('codesnap').setup {
         watermark = '',
         bg_padding = 0,
         has_breadcrumbs = true,

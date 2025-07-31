@@ -3,6 +3,7 @@ return {
     "saghen/blink.cmp",
     version = '*',
     dependencies = 'rafamadriz/friendly-snippets',
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       keymap = {
         preset = "enter",
