@@ -16,16 +16,6 @@ return {
   },
 
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = 'ibl',
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      vim.opt.termguicolors = true
-      require("ibl").setup()
-    end,
-  },
-
-  {
     'folke/trouble.nvim',
     cmd = { "Trouble" },
     config = function()
@@ -63,47 +53,10 @@ return {
     end,
   },
 
-  -- {
-  --   "bluz71/vim-nightfly-colors",
-  --   config = function()
-  --     vim.cmd.colorscheme("nightfly")
-  --   end,
-  -- },
-
-  -- {
-  --   "NvChad/nvterm",
-  --   event = { "BufReadPost", "BufNewFile" },
-  --   config = function()
-  --     require("nvterm").setup({
-  --       terminals = {
-  --         shell = "/usr/bin/fish",
-  --         type_opts = {
-  --           float = {
-  --             width = 0.8,
-  --             height = 0.6,
-  --             row = 0.2,
-  --             col = 0.1,
-  --           },
-  --         },
-  --       },
-  --     })
-  --   end,
-  -- },
-
-  -- {
-  --   'jedrzejboczar/possession.nvim',
-  --   dependencies = { 'nvim-lua/plenary.nvim' },
-  --   config = function()
-  --     require('possession').setup {
-  --       commands = {
-  --         save = 'SSave',
-  --         load = 'SLoad',
-  --         delete = 'SDelete',
-  --         list = 'SList',
-  --       }
-  --     }
-  --   end,
-  -- },
-
-
+  {
+    'Bekaboo/dropbar.nvim',
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    }
+  }
 }
