@@ -1,5 +1,5 @@
 local normal = {
-  { "<leader>q",  ":q<CR>",                                                                              desc = "Quit" },
+  { "<leader>q",  ":qa<CR>",                                                                             desc = "Quit" },
   { "<leader>b",  group = "buffer" },
   { "<leader>bb", ":ls<CR>",                                                                             desc = "List Buffers" },
   { "<leader>bd", ":lua MiniBufremove.delete()<CR>",                                                     desc = "Buffer Close" },
@@ -13,11 +13,11 @@ local normal = {
   { "<leader>dt", ":DapTerminate<CR>",                                                                   desc = "Terminate" },
   { "<leader>du", ":lua require('dapui').toggle()<CR>",                                                  desc = "Show UI" },
   { "<leader>f",  group = "find" },
-  { "<leader>fd", ":Pick diagnostic<CR>",                                                          desc = "Diagnostics Search" },
-  { "<leader>ff", ":Pick files<CR>",                                                           desc = "Find Files" },
-  { "<leader>fb", ":Pick buffers<CR>",                                                              desc = "Find Opened Buffers" },
-  { "<leader>fg", ":Pick grep_live<CR>",                                                            desc = "Find Text In Workspace" },
-  { "<leader>fo", ":lua MiniExtra.pickers.lsp({ scope = 'document_symbol' })<CR>",                                                 desc = "Find Symbols (Outline)" },
+  { "<leader>fd", ":Pick diagnostic<CR>",                                                                desc = "Diagnostics Search" },
+  { "<leader>ff", ":Pick files<CR>",                                                                     desc = "Find Files" },
+  { "<leader>fb", ":Pick buffers<CR>",                                                                   desc = "Find Opened Buffers" },
+  { "<leader>fg", ":Pick grep_live<CR>",                                                                 desc = "Find Text In Workspace" },
+  { "<leader>fo", ":lua MiniExtra.pickers.lsp({ scope = 'document_symbol' })<CR>",                       desc = "Find Symbols (Outline)" },
   { "<leader>g",  group = "git" },
   { "<leader>gD", ":Gitsigns diffthis HEAD<CR>",                                                         desc = "Diff File" },
   { "<leader>gb", ":Gitsigns blame_line<CR>",                                                            desc = "Blame Line" },
@@ -34,7 +34,8 @@ local normal = {
   { "<leader>lt", ":lua vim.lsp.buf.type_definition()<CR>",                                              desc = "Goto Type Definition" },
   { "<leader>p",  group = "pane" },
   { "<leader>pd", ":Trouble diagnostics<CR>",                                                            desc = "Trouble Toggle" },
-  { "<leader>pf", ":lua MiniFiles.open()<CR>",                                                            desc = "Trouble Toggle" },
+  { "<leader>pf", ":lua MiniFiles.open()<CR>",                                                           desc = "File Picker Toggle" },
+  { "<leader>pb", ":lua require'dropbar.api'.pick()<CR>",                                                desc = "Breadcrumb Activate" },
 }
 
 local visual = {
