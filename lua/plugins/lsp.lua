@@ -27,6 +27,18 @@ local servers = {
   },
 }
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    for lsp, config in pairs(servers) do
+      local filetypes = config.filetypes or {}
+      if vim.list_contains(filetypes, vim.bo.filetype) then
+        vim.lsp.enable(lsp)
+      end
+    end
+  end,
+})
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -46,7 +58,7 @@ return {
         automatic_enable = false,
       })
 
-      local lspconfig = require('lspconfig')
+      local lspconfig = vim.lsp.config
       local on_attach = function(_, bufnr)
         require "lsp_signature".on_attach({
           bind = true,
@@ -57,7 +69,7 @@ return {
       for lsp, config in pairs(opts.servers) do
         config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
         config.on_attach = on_attach
-        lspconfig[lsp].setup(config)
+        lspconfig(lsp, config)
       end
     end,
   },
