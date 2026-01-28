@@ -1,8 +1,11 @@
 return {
   {
     "echasnovski/mini.nvim",
-    version = false,
+    version = '*',
     event = { "BufReadPost", "BufNewFile" },
+    dependencies = {
+      "echasnovski/mini.pick",
+    },
     config = function()
       require('mini.comment').setup()
       require('mini.bracketed').setup()
@@ -14,14 +17,19 @@ return {
       require('mini.move').setup()
       require('mini.tabline').setup()
       require('mini.pairs').setup()
-      require('mini.extra').setup()
       require('mini.files').setup()
+      require('mini.pick').setup()
+      require('mini.extra').setup()
       require('mini.indentscope').setup {
         draw = {
           delay = 0,
           animation = require('mini.indentscope').gen_animation.none(),
         },
       }
+      vim.cmd [[
+        highlight MiniPickMatchCurrent guibg=#282c34 guifg=#abb2bf gui=bold
+        highlight MiniPickCursor guifg=Cyan
+      ]]
       local MiniStatusline = require 'mini.statusline'
       MiniStatusline.setup {
         content = {
@@ -50,17 +58,4 @@ return {
       }
     end,
   },
-  {
-    "echasnovski/mini.pick",
-    version = '*',
-    dependencies = { "echasnovski/mini.nvim" },
-    cmd = { "Pick" },
-    config = function()
-      require('mini.pick').setup()
-      vim.cmd [[
-        highlight MiniPickMatchCurrent guibg=#282c34 guifg=#abb2bf gui=bold
-        highlight MiniPickCursor guifg=Cyan
-      ]]
-    end,
-  }
 }
