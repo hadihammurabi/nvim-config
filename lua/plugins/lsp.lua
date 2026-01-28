@@ -1,12 +1,9 @@
 local servers = {
-  lua_ls = {},
-  gopls = {},
-  ts_ls = {},
-  sqlls = {},
-  dartls = { install = false }, -- Dart
-  ocamllsp = {},
-  kotlin_language_server = {},
+  lua_ls = { filetypes = { "lua" } },
+  gopls = { filetypes = { "go" } },
+  sqlls = { filetypes = { "sql" } },
   rust_analyzer = {
+    filetypes = { "rust" },
     cmd = {
       "rustup",
       "run",
