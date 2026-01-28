@@ -2,7 +2,10 @@ return {
   {
     "saghen/blink.cmp",
     version = '*',
-    dependencies = 'rafamadriz/friendly-snippets',
+    build = 'cargo build --release',
+    dependencies = {
+      'rafamadriz/friendly-snippets',
+    },
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       keymap = {
@@ -14,9 +17,7 @@ return {
         default = { "lsp", "snippets", "path", "buffer" },
       },
       completion = {
-        ghost_text = {
-          enabled = true,
-        },
+        ghost_text = { enabled = true },
         menu = {
           draw = {
             columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
