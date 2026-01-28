@@ -11,17 +11,6 @@ local servers = {
       "rust-analyzer",
     },
   },
-  volar = {
-    filetypes = { 'vue' },
-    init_options = {
-      languagefeatures = {
-        completion = {
-          defaulttagnamecase = 'both',
-          defaultattrnamecase = 'kebabcase',
-        },
-      },
-    },
-  },
 }
 
 vim.api.nvim_create_autocmd("FileType", {
