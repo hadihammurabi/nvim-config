@@ -2,6 +2,15 @@ local servers = {
   lua_ls = { filetypes = { "lua" } },
   gopls = { filetypes = { "go" } },
   sqlls = { filetypes = { "sql" } },
+  clangd = {
+    filetypes = {"cpp"},
+    cmd = { "clangd" },
+  },
+  ocamllsp = {
+    cmd = { "ocamllsp" },
+    filetypes = { "ocaml", "menhir", "ocamlinterface", "ocamllex", "reason", "dune" },
+    root_markers = { "*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace" },
+  },
   rust_analyzer = {
     filetypes = { "rust" },
     cmd = {
@@ -27,11 +36,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
 return {
   {
-    "neovim/nvim-lspconfig",
+    "williamboman/mason-lspconfig.nvim",
     dependencies = {
       "ray-x/lsp_signature.nvim",
       "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
       "saghen/blink.cmp",
     },
     event = { "BufReadPre", "BufNewFile" },
@@ -39,8 +47,15 @@ return {
       servers = servers,
     },
     config = function(_, opts)
+      local installed_servers = {}
+      for lsp, config in pairs(opts.servers) do
+        if config.install ~= false then
+          table.insert(installed_servers, lsp)
+        end
+      end
+
       require("mason-lspconfig").setup({
-        ensure_installed = vim.tbl_keys(opts.servers),
+        ensure_installed = installed_servers,
         automatic_enable = false,
       })
 
