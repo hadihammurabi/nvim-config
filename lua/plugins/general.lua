@@ -31,9 +31,10 @@ return {
     end,
   },
 
-  { 'xiyaowong/transparent.nvim' },
+  { 'xiyaowong/transparent.nvim', lazy = false },
   {
     "folke/tokyonight.nvim",
+    lazy = false,
     config = function()
       vim.cmd.colorscheme("tokyonight-night")
     end,

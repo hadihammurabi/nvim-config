@@ -21,6 +21,8 @@ require("lazy").setup('plugins', {
     enabled = false,
     notify = false,
   },
+  defaults = { lazy = true },
+  concurrency = vim.loop.available_parallelism(),
 })
 vim.diagnostic.config({
   virtual_text = true,
