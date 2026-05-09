@@ -9,6 +9,7 @@ return {
         formatters_by_ft = {
           go = { 'goimports' },
           ocaml = { "ocamlformat" },
+          c = { "clang-format" },
         },
         formatters = {
           ocamlformat = {

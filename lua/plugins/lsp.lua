@@ -3,7 +3,7 @@ local servers = {
   gopls = { filetypes = { "go" } },
   sqlls = { filetypes = { "sql" } },
   clangd = {
-    filetypes = {"cpp"},
+    filetypes = { "cpp" },
     cmd = { "clangd" },
   },
   ocamllsp = {
