@@ -1,15 +1,7 @@
 local servers = {
-  lua_ls = { filetypes = { "lua" } },
-  gopls = { filetypes = { "go" } },
-  sqlls = { filetypes = { "sql" } },
-  rust_analyzer = {
-    filetypes = { "rust" },
-    cmd = {
-      "rustup",
-      "run",
-      "stable",
-      "rust-analyzer",
-    },
+  lua_ls = {
+    filetypes = { "lua" },
+    cmd = { "lua-language-server" }
   },
 }
 
