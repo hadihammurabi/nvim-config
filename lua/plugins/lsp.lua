@@ -1,23 +1,16 @@
 local servers = {
   lua_ls = { filetypes = { "lua" } },
-  gopls = { filetypes = { "go" } },
-  sqlls = { filetypes = { "sql" } },
-  clangd = {
-    filetypes = { "cpp" },
-    cmd = { "clangd" },
-  },
-  ocamllsp = {
-    cmd = { "ocamllsp" },
-    filetypes = { "ocaml", "menhir", "ocamlinterface", "ocamllex", "reason", "dune" },
-    root_markers = { "*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace" },
-  },
-  rust_analyzer = {
-    filetypes = { "rust" },
-    cmd = {
-      "rustup",
-      "run",
-      "stable",
-      "rust-analyzer",
+  ts_ls = {
+    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    cmd = { 'typescript-language-server', '--stdio' },
+    init_options = {
+      plugins = {
+        {
+          name = '@vue/typescript-plugin',
+          location = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+          languages = { 'vue' },
+        },
+      },
     },
   },
 }

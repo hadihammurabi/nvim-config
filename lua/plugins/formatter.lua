@@ -7,18 +7,11 @@ return {
 
       conform.setup({
         formatters_by_ft = {
-          go = { 'goimports' },
-          ocaml = { "ocamlformat" },
-          c = { "clang-format" },
         },
         formatters = {
-          ocamlformat = {
-            prepend_args = {
-            }
-          }
         },
         format_on_save = function(bufnr)
-          local ignore_filetypes = { "ocaml" }
+          local ignore_filetypes = {}
           if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
             return
           end
