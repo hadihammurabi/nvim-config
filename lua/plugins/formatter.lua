@@ -7,11 +7,13 @@ return {
 
       conform.setup({
         formatters_by_ft = {
+          go = { "goimports" },
+          json = { "jq" },
         },
         formatters = {
         },
         format_on_save = function(bufnr)
-          local ignore_filetypes = {}
+          local ignore_filetypes = { 'typescriptreact', 'tsx' }
           if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
             return
           end

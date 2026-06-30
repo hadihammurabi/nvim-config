@@ -1,5 +1,7 @@
 local servers = {
-  lua_ls = { filetypes = { "lua" } },
+  lua_ls = { filetypes = { "lua" }, cmd = { "lua-language-server" } },
+  gopls = { filetypes = { "go" }, cmd = { "gopls" } },
+  sqlls = { filetypes = { "sql" } },
   ts_ls = {
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
     cmd = { 'typescript-language-server', '--stdio' },
