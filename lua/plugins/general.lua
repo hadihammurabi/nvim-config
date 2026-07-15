@@ -5,7 +5,7 @@ return {
   },
   {
     "folke/which-key.nvim",
-    cmd = { "WhichKey" },
+    lazy = false,
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
@@ -58,6 +58,10 @@ return {
     'Bekaboo/dropbar.nvim',
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-    }
-  }
+    },
+    event = "BufReadPost",
+    config = function()
+      require('dropbar').setup()
+    end,
+  },
 }

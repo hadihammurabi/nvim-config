@@ -45,9 +45,9 @@ vim.g.zig_fmt_autosave = 0
 vim.api.nvim_create_autocmd("VimEnter", {
   pattern = "*",
   callback = function()
-    local path = vim.fn.expand("<afile>")
-    if vim.fn.isdirectory(path) == 1 then
-      require('yazi').yazi()
+    local buffer_name = vim.api.nvim_buf_get_name(0)
+    if vim.fn.isdirectory(buffer_name) == 1 then
+      vim.cmd("cd " .. vim.fn.fnameescape(buffer_name))
     end
   end,
 })
