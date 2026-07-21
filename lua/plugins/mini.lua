@@ -17,7 +17,7 @@ local event = { "VeryLazy" }
 
 for _, mod in ipairs(mini_modules) do
 	table.insert(M, {
-		mod,
+		"nvim-mini/"..mod,
 		version = "*",
 		event = event,
 		config = function()
