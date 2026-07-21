@@ -3,6 +3,10 @@ local servers = {
     filetypes = { "lua" },
     cmd = { "lua-language-server" }
   },
+  rust_analyzer = {
+    filetypes = { "rust" },
+    cmd = { "rust-analyzer" }
+  },
 }
 
 vim.api.nvim_create_autocmd("FileType", {
