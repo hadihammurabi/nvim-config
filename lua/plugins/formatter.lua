@@ -7,7 +7,8 @@ return {
 
       conform.setup({
         formatters_by_ft = {
-          go = {'goimports'},
+          go = { 'goimports' },
+          rust = { 'rustfmt' },
         },
         format_on_save = {
           async = false,
